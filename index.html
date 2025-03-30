@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS Burgers</title>
+    <link rel="icon" href="img/image-removebg-preview (5).png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="img/2.png" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   
+</head>
+<body>
+   <!-- Menu Section with Dropdown -->
+<nav class="main-nav">
+    <div class="container">
+      <div class="menu-container">
+        <div class="logo-container">
+          <img src="img/2.png" alt="Mos Burgers Logo" class="logo">
+          <span class="brand-name">Mos Burgers</span>
+        </div>
+        
+        <ul class="main-menu">
+          <li><a href="#">HOME</a></li>
+          <li class="menu-item-has-children">
+            <a href="#">MENU</a>
+            <div class="mega-menu">
+              <div class="mega-menu-content">
+                <!-- Burgers Column -->
+                <div class="menu-column">
+                  <h3>BURGERS</h3>
+                  <ul class="submenu">
+                    <li><a href="#">Classic Burger (Large)</a></li>
+                    <li><a href="#" class="discount">Classic Burger (Regular)<span>15% OFF</span></a></li>
+                    <li><a href="#">Turkey Burger</a></li>
+                    <li><a href="#">Chicken Burger (Large)</a></li>
+                    <li><a href="#" class="discount">Chicken Burger (Regular) <span>20% OFF</span></a></li>
+                    <li><a href="#">Cheese Burger (Large)</a></li>
+                    <li><a href="#">Cheese Burger (Regular)</a></li>
+                    <li><a href="#" class="discount">Bacon Burger<span>15% OFF</span></a></li>
+                    <li><a href="#">Shawarma Burger </a></li>
+                    <li><a href="#">Olive Burger</a></li>
+                    <li><a href="#" class="discount">Double-Cheese Burger<span>20% OFF</span></a></li>
+                    <li><a href="#">Crispy Chicken Burger (Regular)</a></li>
+                    <li><a href="#" class="discount">Crispy Chicken Burger (Large)<span>10% OFF</span></a></li>
+                    <li><a href="#">Paneer Burger </a></li>
+                  </ul>
+                </div>
+                
+                <!-- Submarines Column -->
+                <div class="menu-column">
+                  <h3>SUBMARINES</h3>
+                  <ul class="submenu">
+                    <li><a href="#">Crispy Chicken Submarine (Large) </a></li>
+                    <li><a href="#">Crispy Chicken Submarine (Regular) </a></li>
+                    <li><a href="#" class="discount">Chicken Submarine (Large) <span>3% OFF</span></a></li>
+                    <li><a href="#">Chicken Submarine (Regular) </a></li>
+                    <li><a href="#">Grinder Submarine</a></li>
+                    <li><a href="#">Cheese Submarine</a></li>
+                    <li><a href="#" class="discount">Double Cheese n Chicken Submarine <span>16% OFF</span></a></li>
+                    <li><a href="#">Special Hoagie Submarine </a></li>
+                    <li><a href="#" class="trending">MOS Special Submarine  <span class="hot-tag">BEST</span></a></li>
+                  </ul>
+                </div>
+                
+                <!-- Sides & Other Items Column -->
+                <div class="menu-column">
+                  <h3>SIDES & EXTRAS</h3>
+                  <ul class="submenu">
+                    <h4>Fries</h4>
+                    <li><a href="#">Steak Fries (Large) </a></li>
+                    <li><a href="#">Steak Fries (Medium) </a></li>
+                    <li><a href="#">French Fries (Large) </a></li>
+                    <li><a href="#">French Fries (Medium) </a></li>
+                    <li><a href="#">French Fries (Small) </a></li>
+                    <li><a href="#">Sweet Potato Fries (Large) </a></li>
+                    
+                    <h4>Pasta</h4>
+                    <li><a href="#" class="discount">Chicken n Cheese Pasta <span>15% OFF</span></a></li>
+                    <li><a href="#">Chicken Penne Pasta </a></li>
+                    <li><a href="#" class="discount">Ground Turkey Pasta Bake  <span>10% OFF</span></a></li>
+                    <li><a href="#">Creamy Shrimp Pasta </a></li>
+                    <li><a href="#">Lemon Butter Pasta </a></li>
+                    <li><a href="#" class="discount">Tagliatelle Pasta <span>1% OFF</span></a></li>
+                    <li><a href="#" class="discount">Baked Ravioli  <span>1% OFF</span></a></li>
+                  </ul>
+                </div>
+                
+                <!-- Chicken & Beverages Column -->
+                <div class="menu-column">
+                  <h3>CHICKEN</h3>
+                  <ul class="submenu">
+                    <li><a href="#">Fried Chicken (Small) </a></li>
+                    <li><a href="#" class="discount">Fried Chicken (Regular)<span>10% OFF</span></a></li>
+                    <li><a href="#" class="discount">Fried Chicken (Large) <span>5% OFF</span></a></li>
+                    <li><a href="#">Hot Wings (Large) </a></li>
+                    <li><a href="#">Devilled Chicken (Large)</a></li>
+                    <li><a href="#">BBQ Chicken (Regular) </a></li>
+                  </ul>
+                  
+                  <h3>BEVERAGES</h3>
+                  <ul class="submenu">
+                    <li><a href="#" class="discount">Pepsi (330ml)<span>5% OFF</span></a></li>
+                    <li><a href="#">Coca-Cola (330ml) </a></li>
+                    <li><a href="#" class="discount">Sprite (330ml)  <span>3% OFF</span></a></li>
+                    <li><a href="#" class="discount">Mirinda (330ml)<span>7% OFF</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">LOCATIONS</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">CONTACT</a></li>
+          <li class="order-button-container">
+            <a href="#" class="order-button">Order Now</a>
+          </li>
+          <li> <button><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+          </svg></button></li>
+        </ul>
+        
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-aos="fade-right">
+    <div class="carousel-inner" data-aos="fade-right">
+      <!-- First slide -->
+      <div class="carousel-item active">
+        <img src="img/slideshowV1-bg1.webp" class="d-block w-100" alt="...">
+        <div class="text-overlay">
+          <h1 data-aos="fade-down-right" data-aos-delay="300">MOS BURGERS</h1>
+          <h3 class="titlebig mb-0" style="color:#a5fa08;" data-aos="fade-down-right" data-aos-delay="300">Burger & Drink <br> Collection</h3>
+          <br>
+        </div>
+        <div>
+          <a href="https://www.youtube.com/"><button data-aos="fade-up-left" id="shopbtn" data-aos-delay="350">SHOP NOW</button></a>
+        </div>
+      </div>
+      
+      <!-- Second slide -->
+      <div class="carousel-item">
+        <img src="img/slideshowV1-bg2.webp" class="d-block w-100" alt="...">
+        <div class="text-overlay">
+          <h3 class="title-small mb-0" style="color:#fff;">Special Day</h3>      
+          <h3 class="titlebig mb-0" style="color:#fff;">Delicious Burger<br>Product</h3>
+          <br>
+        </div>
+      </div>
+      
+      <!-- Third slide -->
+      <div class="carousel-item">
+        <img src="img/slideshowV1-bg2.webp" class="d-block w-100" alt="...">
+        <div class="text-overlay">
+          <h3 class="titlebig mb-0">SCROLL DOWN</h3>
+        </div>
+      </div>
+    </div>
+</div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <br><br><br>
+  <div class="container">
+    <div class="title-container">
+        <h2 class="title">SHOP BY CATEGORY</h2>
+        <div class="underline"></div>
+    </div>
+    <br><br>
+    <div class="category-grid">
+        <a href="#" class="category-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/877/877951.png" alt="Cheeseburger" class="category-icon">
+            <span class="category-name">Cheeseburger</span>
+        </a>
+        
+        <a href="#" class="category-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Hot Dog" class="category-icon">
+            <span class="category-name">Hot Dog</span>
+        </a>
+        
+        <a href="#" class="category-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/123/123300.png" alt="French Fries" class="category-icon">
+            <span class="category-name">French Fries</span>
+        </a>
+        
+        <a href="#" class="category-item">
+            <img src="img/Sandwitch.jpg" alt="Sandwich" class="category-icon">
+            <span class="category-name">Sandwich</span>
+        </a>
+        
+        <a href="#" class="category-item">
+            <img src="img/taco.jpg" alt="Taco" class="category-icon">
+            <span class="category-name">Taco</span>
+        </a>
+        
+        <a href="#" class="category-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Pizza" class="category-icon">
+            <span class="category-name">Pizza</span>
+        </a>
+    </div>
+</div><br><br>
+<div class="header1">
+  <h1 class="best-seller-title"> All Burgers</h1>
+  <div class="underline"></div>
+  <p class="best-seller-subtitle">ALL THE BURGERS IN SHOP!</p>
+</div>
+
+<div class="menu-grid">
+  <!-- Row 1 -->
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/1.png" alt="The Deli Taco Soft">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Classic Burger (Regular)</h3>
+          <div class="price-container">
+              <span class="original-price">1500/=</span>
+              <span class="discounted-price">1275/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/2j.png" alt="Vegetable Cheese Pizza">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Chicken Burger (Regular)</h3>
+          <div class="price-container">
+              <span class="original-price">800/=</span>
+              <span class="price">640/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/4.png" alt="Special Muffin & Omelette">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Bacon Burger</h3>
+          <div class="price-container">
+              <span class="original-price">650/=</span>
+              <span class="discounted-price">553/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/3.png" alt="Spaghetti">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Cheese Burger (Regular)</h3>
+          <div class="price-container">
+              <span class="price">600/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Row 2 -->
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/5.png" alt="Set Of Rice">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Shawarma Burger</h3>
+          <div class="price-container">
+              <span class="price">800/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/6.png" alt="Set Of Burger 1 Layer">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Double-Cheese Burger</h3>
+          <div class="price-container">
+              <span class="original-price">1250/=</span>
+              <span class="discounted-price">1100/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/7.png" alt="Set Of Breakfast">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Crispy Chicken Burger (Regular)</h3>
+          <div class="price-container">
+              <span class="price">1200/=</span>
+          </div>
+      </div>
+  </div>
+  
+  <div class="menu-item">
+      <div class="menu-item-image">
+          <img src="img/8.png" alt="Happy Meal Chicken & Burger">
+      </div>
+      <div class="menu-item-details">
+          <h3 class="menu-item-title">Paneer Burger</h3>
+          <div class="price-container">
+              <span class="price">900/=</span>
+          </div>
+      </div>
+  </div>
+
+
+    <!-- new line  -->
+
+    <div class="submarine">
+      <h1 class="best-seller-title"> All Submarines</h1>
+    <div class="underline"></div>
+    <p class="best-seller-subtitle">ALL THE SUBMARINES IN SHOP!</p>
+    </div>
+
+    <table >
+      <tr>
+      <div class="item1">
+        <div class="menu-item-image">
+          <img src="img/9.png" alt="Happy Meal Chicken & Burger">
+        </div>
+        <div class="menu-item-details">
+          <h3 class="title1">Crispy Chicken Submarine</h3>
+          <div class="price-container">
+            <span class="price">2000/=</span>
+          </div>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="item1">
+          <div class="menu-item-image">
+            <img src="img/10.png" alt="Happy Meal Chicken & Burger">
+          </div>
+          <div class="menu-item-details">
+            <h3 class="title1">Chicken Submarine (Large)</h3>
+            <div class="price-container">
+              <span class="original-price">1800/=</span>
+                <span class="discounted-price">1746/=</span>
+            </div>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="item1">
+            <div class="menu-item-image">
+              <img src="img/11.png" alt="Happy Meal Chicken & Burger">
+            </div>
+            <div class="menu-item-details">
+              <h3 class="title1">Grinder Submarine</h3>
+              <div class="price-container">
+                <span class="price">2300/=</span>
+              </div>
+            </div>
+          </tr>
+
+          <tr>
+            <div class="item1">
+              <div class="menu-item-image">
+                <img src="img/12.png" alt="Happy Meal Chicken & Burger">
+              </div>
+              <div class="menu-item-details">
+                <h3 class="title1">MOS Special Submarine</h3>
+                <div class="price-container">
+                  <span class="price">3000/=</span>
+                </div>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="item1">
+                <div class="menu-item-image">
+                  <img src="img/13.png" alt="Happy Meal Chicken & Burger">
+                </div>
+                <div class="menu-item-details">
+                  <h3 class="title1">Double Cheese n Chicken Submarine</h3>
+                  <div class="price-container">
+                    <span class="original-price">1900/=</span>
+                <span class="discounted-price">1596/=</span>
+                  </div>
+                </div>
+              </tr>
+
+              <tr>
+                <div class="item1">
+                  <div class="menu-item-image">
+                    <img src="img/14.png" alt="Happy Meal Chicken & Burger">
+                  </div>
+                  <div class="menu-item-details">
+                    <h3 class="title1">Special Horgie Submarine</h3>
+                    <div class="price-container">
+                      <span class="price">2800/=</span>
+                    </div>
+                  </div>
+                </tr>
+
+                <tr>
+                  <div class="item1">
+                    <div class="menu-item-image">
+                      <img src="img/15.png" alt="Happy Meal Chicken & Burger">
+                    </div>
+                    <div class="menu-item-details">
+                      <h3 class="title1">Cheese Submarine</h3>
+                      <div class="price-container">
+                        <span class="price">2200/=</span>
+                      </div>
+                    </div>
+                  </tr>
+
+    </table>
+
+    <!-- new line  -->
+
+    <div class="Fries">
+      <h1 class="best-seller-title"> All Fries</h1>
+    <p class="best-seller-subtitle">ALL THE FRIES IN SHOP!</p>
+    </div>
+
+    <table >
+      <tr>
+      <div class="item2">
+        <div class="menu-item-image">
+          <img src="img/16.png" alt="Happy Meal Chicken & Burger">
+        </div>
+        <div class="menu-item-details">
+          <h3 class="title1">Steak Fries (Large) </h3>
+          <div class="price-container">
+            <span class="price">1200/=</span>
+          </div>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="item2">
+          <div class="menu-item-image">
+            <img src="img/17.png" alt="Happy Meal Chicken & Burger">
+          </div>
+          <div class="menu-item-details">
+            <h3 class="title1">Steak Fries (Medium)</h3>
+            <div class="price-container">
+                <span class="discounted-price">600/=</span>
+            </div>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="item2">
+            <div class="menu-item-image">
+              <img src="img/18.png" alt="Happy Meal Chicken & Burger">
+            </div>
+            <div class="menu-item-details">
+              <h3 class="title1">French Fries (Large)</h3>
+              <div class="price-container">
+                <span class="price">800/=</span>
+              </div>
+            </div>
+          </tr>
+
+          <tr>
+            <div class="item2">
+              <div class="menu-item-image">
+                <img src="img/19.png" alt="Happy Meal Chicken & Burger">
+              </div>
+              <div class="menu-item-details">
+                <h3 class="title1">French Fries (Medium)</h3>
+                <div class="price-container">
+                  <span class="price">650/=</span>
+                </div>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="item2">
+                <div class="menu-item-image">
+                  <img src="img/20.png" alt="Happy Meal Chicken & Burger">
+                </div>
+                <div class="menu-item-details">
+                  <h3 class="title1">French Fries (Small)</h3>
+                  <div class="price-container">
+                <span class="discounted-price">450/=</span>
+                  </div>
+                </div>
+              </tr>
+
+              <tr>
+                <div class="item2">
+                  <div class="menu-item-image">
+                    <img src="img/21.png" alt="Happy Meal Chicken & Burger">
+                  </div>
+                  <div class="menu-item-details">
+                    <h3 class="title1">Sweet Potato Fries (Large)</h3>
+                    <div class="price-container">
+                      <span class="price">600/=</span>
+                    </div>
+                  </div>
+                </tr>
+    </table>
+
+
+    <!-- new line  -->
+
+    <div class="Pasta">
+      <h1 class="best-seller-title"> All Pasta</h1>
+    <p class="best-seller-subtitle">ALL THE PASTA IN SHOP!</p>
+    </div>
+
+    <table >
+      <tr>
+      <div class="item3">
+        <div class="menu-item-image">
+          <img src="img/22.png" alt="Happy Meal Chicken & Burger">
+        </div>
+        <div class="menu-item-details">
+          <h3 class="title1">Chicken n Cheese Pasta </h3>
+          <div class="price-container">
+            <span class="original-price">1600/=</span>
+                <span class="discounted-price">1360/=</span>
+          </div>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="item3">
+          <div class="menu-item-image">
+            <img src="img/23.png" alt="Happy Meal Chicken & Burger">
+          </div>
+          <div class="menu-item-details">
+            <h3 class="title1">Chicken Penne Pasta</h3>
+            <div class="price-container">
+                <span class="discounted-price">1700/=</span>
+            </div>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="item3">
+            <div class="menu-item-image">
+              <img src="img/24.png" alt="Happy Meal Chicken & Burger">
+            </div>
+            <div class="menu-item-details">
+              <h3 class="title1">Ground Turkey Pasta Bake</h3>
+              <div class="price-container">
+                <span class="original-price">2900/=</span>
+                <span class="discounted-price">2610/=</span>
+              </div>
+            </div>
+          </tr>
+
+          <tr>
+            <div class="item3">
+              <div class="menu-item-image">
+                <img src="img/25.png" alt="Happy Meal Chicken & Burger">
+              </div>
+              <div class="menu-item-details">
+                <h3 class="title1">Creamy Shrimp Pasta</h3>
+                <div class="price-container">
+                  <span class="price">2000/=</span>
+                </div>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="item3">
+                <div class="menu-item-image">
+                  <img src="img/26.png" alt="Happy Meal Chicken & Burger">
+                </div>
+                <div class="menu-item-details">
+                  <h3 class="title1">Lemon Butter Pasta</h3>
+                  <div class="price-container">
+                <span class="discounted-price">1950/=</span>
+                  </div>
+                </div>
+              </tr>
+
+              <tr>
+                <div class="item3">
+                  <div class="menu-item-image">
+                    <img src="img/27.png" alt="Happy Meal Chicken & Burger">
+                  </div>
+                  <div class="menu-item-details">
+                    <h3 class="title1">Tagliatelle Pasta</h3>
+                    <div class="price-container">
+                      <span class="original-price">2400/=</span>
+                <span class="discounted-price">2376/=</span>
+                    </div>
+                  </div>
+                </tr>
+    </table>
+
+     <!-- new line  -->
+
+     <div class="Chicken">
+      <h1 class="best-seller-title"> All Chicken</h1>
+    <p class="best-seller-subtitle">ALL THE CHICKEN IN SHOP!</p>
+    </div>
+
+    <table >
+      <tr>
+      <div class="item4">
+        <div class="menu-item-image">
+          <img src="img/28.png" alt="Happy Meal Chicken & Burger">
+        </div>
+        <div class="menu-item-details">
+          <h3 class="title1">Fried Chicken (Small)  </h3>
+          <div class="price-container">
+                <span class="discounted-price">1200/=</span>
+          </div>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="item4">
+          <div class="menu-item-image">
+            <img src="img/29.png" alt="Happy Meal Chicken & Burger">
+          </div>
+          <div class="menu-item-details">
+            <h3 class="title1">Fried Chicken (Regular)</h3>
+            <div class="price-container">
+                <span class="discounted-price">2300/=</span>
+            </div>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="item4">
+            <div class="menu-item-image">
+              <img src="img/30.png" alt="Happy Meal Chicken & Burger">
+            </div>
+            <div class="menu-item-details">
+              <h3 class="title1">Fried Chicken (Large)</h3>
+              <div class="price-container">
+                <span class="original-price">3100/=</span>
+                <span class="discounted-price">2945/=</span>
+              </div>
+            </div>
+          </tr>
+
+          <tr>
+            <div class="item4">
+              <div class="menu-item-image">
+                <img src="img/31.png" alt="Happy Meal Chicken & Burger">
+              </div>
+              <div class="menu-item-details">
+                <h3 class="title1">Hot Wings (Large)</h3>
+                <div class="price-container">
+                  <span class="price">2400/=</span>
+                </div>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="item4">
+                <div class="menu-item-image">
+                  <img src="img/32.png" alt="Happy Meal Chicken & Burger">
+                </div>
+                <div class="menu-item-details">
+                  <h3 class="title1">Devilled Chicken (Large)</h3>
+                  <div class="price-container">
+                <span class="discounted-price">900/=</span>
+                  </div>
+                </div>
+              </tr>
+
+              <tr>
+                <div class="item4">
+                  <div class="menu-item-image">
+                    <img src="img/33.png" alt="Happy Meal Chicken & Burger">
+                  </div>
+                  <div class="menu-item-details">
+                    <h3 class="title1">BBQ Chicken (Regular)</h3>
+                    <div class="price-container">
+                <span class="discounted-price">2100/=</span>
+                    </div>
+                  </div>
+                </tr>
+    </table>
+
+    <!--  -->
+
+    <div class="Beverages">
+      <h1 class="best-seller-title"> All Chicken</h1>
+    <p class="best-seller-subtitle">ALL THE CHICKEN IN SHOP!</p>
+    </div>
+
+    <table >
+      <tr>
+      <div class="item5">
+        <div class="menu-item-image">
+          <img src="img/34.png" alt="Happy Meal Chicken & Burger">
+        </div>
+        <div class="menu-item-details">
+          <h3 class="title1">Pepsi (330ml) </h3>
+          <div class="price-container">
+                <span class="discounted-price">990/=</span>
+          </div>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="item5">
+          <div class="menu-item-image">
+            <img src="img/35.png" alt="Happy Meal Chicken & Burger">
+          </div>
+          <div class="menu-item-details">
+            <h3 class="title1">Coca-Cola (330ml)</h3>
+            <div class="price-container">
+                <span class="discounted-price">1230/=</span>
+            </div>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="item5">
+            <div class="menu-item-image">
+              <img src="img/36.png" alt="Happy Meal Chicken & Burger">
+            </div>
+            <div class="menu-item-details">
+              <h3 class="title1">Sprite (330ml)</h3>
+              <div class="price-container">
+                <span class="original-price">1500/=</span>
+                <span class="discounted-price">1455/=</span>
+              </div>
+            </div>
+          </tr>
+
+          <tr>
+            <div class="item5">
+              <div class="menu-item-image">
+                <img src="img/37.png" alt="Happy Meal Chicken & Burger">
+              </div>
+              <div class="menu-item-details">
+                <h3 class="title1">Mirinda (330ml)</h3>
+                <div class="price-container">
+                  <span class="price">850/=</span>
+                </div>
+              </div>
+            </tr>
+    </table>
+
+
+
+
+
+  
+    
+ 
+  
+
+
+
+
+
+<script src="app.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+</body>
+</html>
