@@ -34,5 +34,4 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
 }
-
-
+lightGallery(document.getElementById('lg-srcset-demo'));

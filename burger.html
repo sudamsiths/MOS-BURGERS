@@ -1,0 +1,481 @@
+<!-- From Uiverse.io by zanina-yassine with modifications to include restaurant menu --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <title>Restaurant Menu & Cart</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .master-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .menu-category {
+            margin-bottom: 20px;
+        }
+        .category-title {
+            background-color: #e0e0e0;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+        .menu-item:hover {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .menu-item-details {
+            flex-grow: 1;
+        }
+        .menu-item-name {
+            font-weight: 500;
+        }
+        .menu-item-price {
+            color: #FF8413;
+            font-weight: bold;
+        }
+        .menu-item-discount {
+            color: #4CAF50;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .add-btn {
+            background-color: #FF8413;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .add-btn:hover {
+            background-color: #e67300;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .product > div:first-of-type {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        .product span {
+            font-weight: 500;
+        }
+        .product p {
+            margin: 5px 0;
+            color: #777;
+            font-size: 14px;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .quantity button {
+            background-color: #f5f5f5;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .quantity label {
+            margin: 0 10px;
+        }
+        .price {
+            font-weight: bold;
+        }
+        .form {
+            display: flex;
+            margin-top: 10px;
+        }
+        .input_field {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+        }
+        .form button {
+            background-color: #FF8413;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .details {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            row-gap: 10px;
+            margin-bottom: 20px;
+        }
+        .checkout--footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .price {
+            font-size: 18px;
+        }
+        .checkout-btn {
+            background-color: #FF8413;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .checkout-btn:hover {
+            background-color: #e67300;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .master-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html"><button type="button" class="btn-close" aria-label="Close"></button></a><br>
+    <div class="master-container">
+        <div class="card menu">
+            <label class="title">Restaurant Menu</label>
+            
+            <!-- Burgers Category -->
+            <div class="menu-category">
+                <div class="category-title">Burgers</div>
+                <div class="menu-item" onclick="addToCart('B1001', 'Classic Burger (Large)', 750)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Classic Burger (Large)</div>
+                        <div class="menu-item-code">B1001</div>
+                    </div>
+                    <div class="menu-item-price">රු.750.00</div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1002', 'Classic Burger (Regular)', 1500, 15)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Classic Burger (Regular)</div>
+                        <div class="menu-item-code">B1002</div>
+                    </div>
+                    <div class="menu-item-price">රු.1500.00 <span class="menu-item-discount">15% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1003', 'Turkey Burger', 1600)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Turkey Burger</div>
+                        <div class="menu-item-code">B1003</div>
+                    </div>
+                    <div class="menu-item-price">රු.1600.00</div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1005', 'Chicken Burger (Regular)', 800, 20)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Chicken Burger (Regular)</div>
+                        <div class="menu-item-code">B1005</div>
+                    </div>
+                    <div class="menu-item-price">රු.800.00 <span class="menu-item-discount">20% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1008', 'Bacon Burger', 650, 15)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Bacon Burger</div>
+                        <div class="menu-item-code">B1008</div>
+                    </div>
+                    <div class="menu-item-price">රු.650.00 <span class="menu-item-discount">15% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+            
+            <!-- Submarines Category -->
+            <div class="menu-category">
+                <div class="category-title">Submarines</div>
+                <div class="menu-item" onclick="addToCart('B1016', 'Crispy Chicken Submarine (Large)', 2000)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Crispy Chicken Submarine (Large)</div>
+                        <div class="menu-item-code">B1016</div>
+                    </div>
+                    <div class="menu-item-price">රු.2000.00</div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1018', 'Chicken Submarine (Large)', 1800, 3)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Chicken Submarine (Large)</div>
+                        <div class="menu-item-code">B1018</div>
+                    </div>
+                    <div class="menu-item-price">රු.1800.00 <span class="menu-item-discount">3% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1022', 'Double Cheese n Chicken Submarine', 1900, 16)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Double Cheese n Chicken Submarine</div>
+                        <div class="menu-item-code">B1022</div>
+                    </div>
+                    <div class="menu-item-price">රු.1900.00 <span class="menu-item-discount">16% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+            
+            <!-- Chicken & Beverages -->
+            <div class="menu-category">
+                <div class="category-title">Chicken & Beverages</div>
+                <div class="menu-item" onclick="addToCart('B1059', 'Fried Chicken (Regular)', 2300, 10)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Fried Chicken (Regular)</div>
+                        <div class="menu-item-code">B1059</div>
+                    </div>
+                    <div class="menu-item-price">රු.2300.00 <span class="menu-item-discount">10% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1044', 'Pepsi (330ml)', 990, 5)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Pepsi (330ml)</div>
+                        <div class="menu-item-code">B1044</div>
+                    </div>
+                    <div class="menu-item-price">රු.990.00 <span class="menu-item-discount">5% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+                <div class="menu-item" onclick="addToCart('B1047', 'Miranda (330ml)', 850, 7)">
+                    <div class="menu-item-details">
+                        <div class="menu-item-name">Miranda (330ml)</div>
+                        <div class="menu-item-code">B1047</div>
+                    </div>
+                    <div class="menu-item-price">රු.850.00 <span class="menu-item-discount">7% off</span></div>
+                    <button class="add-btn">Add</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card cart">
+            <label class="title">Your cart</label>
+            <div class="products" id="cart-products">
+                <div class="empty-cart">Your cart is empty. Add items from the menu!</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card coupons">
+                <label class="title">Apply coupons</label>
+                <form class="form" onsubmit="applyCoupon(event)">
+                    <input type="text" placeholder="Apply your coupons here" class="input_field" id="coupon-input">
+                    <button type="submit">Apply</button>
+                </form>
+            </div>
+            <div class="card checkout">
+                <label class="title">Checkout</label>
+                <div class="details">
+                    <span>Your cart subtotal:</span>
+                    <span id="subtotal">රු.0.00</span>
+                    <span>Discount through applied coupons:</span>
+                    <span id="coupon-discount">රු.0.00</span>
+                    <span>Shipping fees:</span>
+                    <span id="shipping">රු.50.00</span>
+                </div>
+                <div class="checkout--footer">
+                    <label class="price"><sup>රු</sup><span id="total">50.00</span></label>
+                    <button class="checkout-btn">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart data
+        let cart = [];
+        let couponDiscount = 0;
+        const shippingFee = 50;
+        
+        // Add item to cart
+        function addToCart(code, name, price, discount = 0) {
+            const existingItem = cart.find(item => item.code === code);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    code: code,
+                    name: name,
+                    price: price,
+                    discount: discount,
+                    quantity: 1,
+                    notes: []
+                });
+            }
+            
+            updateCart();
+        }
+        
+        // Remove item from cart
+        function removeFromCart(code) {
+            cart = cart.filter(item => item.code !== code);
+            updateCart();
+        }
+        
+        // Change quantity
+        function changeQuantity(code, change) {
+            const item = cart.find(item => item.code === code);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(code);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+        
+        // Apply coupon
+        function applyCoupon(event) {
+            event.preventDefault();
+            const couponCode = document.getElementById('coupon-input').value.trim().toUpperCase();
+            
+            // Sample coupon codes
+            const coupons = {
+                'WELCOME10': 10,
+                'SUMMER20': 20,
+                'NEWUSER15': 15
+            };
+            
+            if (coupons[couponCode]) {
+                couponDiscount = coupons[couponCode];
+                alert(`Coupon applied! ${couponDiscount}% discount on your order.`);
+            } else {
+                alert('Invalid coupon code.');
+                couponDiscount = 0;
+            }
+            
+            document.getElementById('coupon-input').value = '';
+            updateCart();
+        }
+        
+        // Update cart display and calculations
+        function updateCart() {
+            const productsContainer = document.getElementById('cart-products');
+            
+            // Clear current cart display
+            productsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                productsContainer.innerHTML = '<div class="empty-cart">Your cart is empty. Add items from the menu!</div>';
+            } else {
+                // Add each cart item to display
+                cart.forEach(item => {
+                    const itemPrice = item.price * (1 - item.discount/100);
+                    const totalItemPrice = itemPrice * item.quantity;
+                    
+                    const productElement = document.createElement('div');
+                    productElement.className = 'product';
+                    productElement.innerHTML = `
+                        <svg fill="none" viewBox="0 0 60 60" height="60" width="60" xmlns="http://www.w3.org/2000/svg">
+                            <rect fill="#FFF6EE" rx="8.25" height="60" width="60"></rect>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.25" stroke="#FF8413" fill="#FFB672" d="M34.2812 18H25.7189C21.9755 18 18.7931 20.5252 17.6294 24.0434C17.2463 25.2017 17.0547 25.7808 17.536 26.3904C18.0172 27 18.8007 27 20.3675 27H39.6325C41.1993 27 41.9827 27 42.4639 26.3904C42.9453 25.7808 42.7538 25.2017 42.3707 24.0434C41.207 20.5252 38.0246 18 34.2812 18Z"></path>
+                            <path fill="#FFB672" d="M18 36H17.25C16.0074 36 15 34.9926 15 33.75C15 32.5074 16.0074 31.5 17.25 31.5H29.0916C29.6839 31.5 30.263 31.6754 30.7557 32.0039L33.668 33.9453C34.1718 34.2812 34.8282 34.2812 35.332 33.9453L38.2443 32.0039C38.7371 31.6754 39.3161 31.5 39.9084 31.5H42.75C43.9926 31.5 45 32.5074 45 33.75C45 34.9926 43.9926 36 42.75 36H42M18 36L18.6479 38.5914C19.1487 40.5947 20.9486 42 23.0135 42H36.9865C39.0514 42 40.8513 40.5947 41.3521 38.5914L42 36M18 36H28.5ZM42 36H39.75Z"></path>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.25" stroke="#FF8413" d="M18 36H17.25C16.0074 36 15 34.9926 15 33.75C15 32.5074 16.0074 31.5 17.25 31.5H29.0916C29.6839 31.5 30.263 31.6754 30.7557 32.0039L33.668 33.9453C34.1718 34.2812 34.8282 34.2812 35.332 33.9453L38.2443 32.0039C38.7371 31.6754 39.3161 31.5 39.9084 31.5H42.75C43.9926 31.5 45 32.5074 45 33.75C45 34.9926 43.9926 36 42.75 36H42M18 36L18.6479 38.5914C19.1487 40.5947 20.9486 42 23.0135 42H36.9865C39.0514 42 40.8513 40.5947 41.3521 38.5914L42 36M18 36H28.5M42 36H39.75"></path>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="#FF8413" d="M34.512 22.5H34.4982"></path>
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.25" stroke="#FF8413" d="M27.75 21.75L26.25 23.25"></path>
+                        </svg>
+                        <div>
+                            <span>${item.name}</span>
+                            ${item.discount > 0 ? `<p>${item.discount}% off</p>` : ''}
+                            <p>${item.code}</p>
+                        </div>
+                        <div class="quantity">
+                            <button onclick="changeQuantity('${item.code}', -1)">
+                                <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
+                                </svg>
+                            </button>
+                            <label>${item.quantity}</label>
+                            <button onclick="changeQuantity('${item.code}', 1)">
+                                <svg fill="none" viewBox="0 0 24 24" height="14" width="14" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <label class="price">රු.${totalItemPrice.toFixed(2)}</label>
+                    `;
+                    
+                    productsContainer.appendChild(productElement);
+                });
+            }
+            
+            // Update totals
+            calculateTotals();
+        }
+        
+        // Calculate and update totals
+        function calculateTotals() {
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemPrice = item.price * (1 - item.discount/100);
+                subtotal += itemPrice * item.quantity;
+            });
+            
+            const couponAmount = subtotal * (couponDiscount / 100);
+            const total = subtotal - couponAmount + shippingFee;
+            
+            document.getElementById('subtotal').textContent = `රු.${subtotal.toFixed(2)}`;
+            document.getElementById('coupon-discount').textContent = `රු. ${couponAmount.toFixed(2)}`;
+            document.getElementById('shipping').textContent = `රු.${shippingFee.toFixed(2)}`;
+            document.getElementById('total').textContent = `${total.toFixed(2)}`;
+        }
+        
+        // Initialize the cart display
+        updateCart();
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
