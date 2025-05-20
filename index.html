@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MOS Burgers</title>
@@ -9,6 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="img/2.png" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
 
@@ -27,7 +31,7 @@
         <ul class="main-menu">
           <li><a href="#">HOME</a></li>
           <li class="menu-item-has-children">
-            <a href="#">MENU</a>
+            <a href="#Burgers">MENU</a>
             <div class="mega-menu">
               <div class="mega-menu-content">
                 <!-- Burgers Column -->
@@ -50,7 +54,6 @@
                     <li><a href="#">Paneer Burger </a></li>
                   </ul>
                 </div>
-
                 <!-- Submarines Column -->
                 <div class="menu-column">
                   <h3>SUBMARINES</h3>
@@ -114,32 +117,40 @@
             </div>
           </li>
           <li><a href="location.html" target="_blank">LOCATIONS</a></li>
-          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#footer">ABOUT US</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <a href="burger.html"><li><button class="button1">
-            Order Now
-          </button></li></a>
-          <a href="burger.html"><li> <button><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
-                class="bi bi-cart3" viewBox="0 0 16 16">
+          <a href="burger.html">
+            <li><button class="button1">
+                Order Now
+              </button></li>
+          </a>
+          <a href="burger.html">
+            <li> <button><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                  class="bi bi-cart3" viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                </svg></button></li>
+          </a>
+          <li><button class="toggle-btn" onclick="toggleDarkMode()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
                 <path
-                  d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-              </svg></button></li></a>
-          <li><button class="toggle-btn" onclick="toggleDarkMode()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
-            <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>
-          </svg></button></li>
+                  d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+              </svg></button></li>
           <li>
             <a href="login.html"><button class="login-button">
-              <div aria-label="User Login Button" tabindex="0" role="button" class="user-profile">
-                <div class="user-profile-inner">
-                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="user-icon">
-                    <g data-name="Layer 2" id="Layer_2">
-                      <path d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"></path>
-                    </g>
-                  </svg>
-                  <p id="log">Log In</p>
+                <div aria-label="User Login Button" tabindex="0" role="button" class="user-profile">
+                  <div class="user-profile-inner">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="user-icon">
+                      <g data-name="Layer 2" id="Layer_2">
+                        <path
+                          d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z">
+                        </path>
+                      </g>
+                    </svg>
+                    <p id="log">Log In</p>
+                  </div>
                 </div>
-              </div>
-            </button>
+              </button>
           </li></a>
         </ul>
 
@@ -163,7 +174,9 @@
           <br>
         </div>
         <div>
-          <a href=""><button type="button" id="shopbtn" data-aos="zoom-in-left" class="text-white bg-gradient-to-r from-cyan-500 to-blue font-medium rounded-lg text-sm px-5 py-2.5 ">Shop  Now</button>
+          <a href=""><button type="button" id="shopbtn" data-aos="zoom-in-left"
+              class="text-white bg-gradient-to-r from-cyan-500 to-blue font-medium rounded-lg text-sm px-5 py-2.5 ">Shop
+              Now</button>
           </a>
         </div>
       </div>
@@ -197,628 +210,654 @@
   </button>
   </div>
   <br><br><br>
-  <div class="container">
+  <div class="container" id="Burgers">
     <div class="title-container">
-      <h2 class="title">SHOP BY CATEGORY</h2>
+      <h2 id="shop-by-categeory">SHOP BY CATEGORY</h2>
       <div class="underline"></div>
     </div>
     <br><br>
-    <div class="category-grid">
-      <a href="#" class="category-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/877/877951.png" alt="Cheeseburger" class="category-icon">
-        <span class="category-name">Cheeseburger</span>
-      </a>
+    <div data-aos="fade-up">
+      <div class="category-grid">
+        <a href="#burgers" class="category-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/877/877951.png" alt="Cheeseburger" class="category-icon">
+          <span class="category-name">Burger</span>
+        </a>
 
-      <a href="#" class="category-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Hot Dog" class="category-icon">
-        <span class="category-name">Hot Dog</span>
-      </a>
 
-      <a href="#" class="category-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/123/123300.png" alt="French Fries" class="category-icon">
-        <span class="category-name">French Fries</span>
-      </a>
+        <a href="#french-frice" class="category-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/123/123300.png" alt="French Fries" class="category-icon">
+          <span class="category-name">French Fries</span>
+        </a>
 
-      <a href="#" class="category-item">
-        <img src="img/Sandwitch.jpg" alt="Sandwich" class="category-icon">
-        <span class="category-name">Sandwich</span>
-      </a>
+        <a href="#submarines" class="category-item">
+          <img src="img/41.png" alt="Sandwich" class="category-icon" id="Submarines">
+          <span class="category-name">Submarines</span>
+        </a>
 
-      <a href="#" class="category-item">
-        <img src="img/taco.jpg" alt="Taco" class="category-icon">
-        <span class="category-name">Taco</span>
-      </a>
+        <a href="#pasta" class="category-item">
+          <img src="img/5.jpg" alt="Taco" class="category-icon">
+          <span class="category-name">Pasta</span>
+        </a>
 
-      <a href="#" class="category-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Pizza" class="category-icon">
-        <span class="category-name">Pizza</span>
-      </a>
+        <a href="#beverages" class="category-item">
+          <img src="img/6.jpg" alt="Pizza" class="category-icon">
+          <span class="category-name">Beverages</span>
+        </a>
+      </div>
     </div>
   </div><br><br>
 
-    <div class="header1">
-        <h1 class="best-seller-title"> All Burgers</h1>
-        <p class="best-seller-subtitle">ALL THE BURGERS IN SHOP!</p>
+  <div class="header1" id="burgers">
+    <h1 class="best-seller-title"> All Burgers</h1>
+    <p class="best-seller-subtitle">ALL THE BURGERS IN SHOP!</p>
+  </div>
+
+  <div class="menu-grid">
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/1.png" alt="The Deli Taco Soft">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Classic Burger (Regular)</h3>
+        <div class="price-container">
+          <span class="original-price">1500/=</span>
+          <span class="discounted-price">1275/=</span>
+        </div>
+      </div>
     </div>
 
-    <div class="menu-grid">
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/1.png" alt="The Deli Taco Soft">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Classic Burger (Regular)</h3>
-                <div class="price-container">
-                    <span class="original-price">1500/=</span>
-                    <span class="discounted-price">1275/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/2j.png" alt="Vegetable Cheese Pizza">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Chicken Burger (Regular)</h3>
+        <div class="price-container">
+          <span class="original-price">800/=</span>
+          <span class="price">640/=</span>
         </div>
+      </div>
+    </div>
 
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/2j.png" alt="Vegetable Cheese Pizza">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Chicken Burger (Regular)</h3>
-                <div class="price-container">
-                    <span class="original-price">800/=</span>
-                    <span class="price">640/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/4.png" alt="Special Muffin & Omelette">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Bacon Burger</h3>
+        <div class="price-container">
+          <span class="original-price">650/=</span>
+          <span class="discounted-price">553/=</span>
         </div>
+      </div>
+    </div>
 
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/4.png" alt="Special Muffin & Omelette">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Bacon Burger</h3>
-                <div class="price-container">
-                    <span class="original-price">650/=</span>
-                    <span class="discounted-price">553/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/3.png" alt="Spaghetti">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Cheese Burger (Regular)</h3>
+        <div class="price-container">
+          <span class="price">600/=</span>
         </div>
+      </div>
+    </div>
 
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/3.png" alt="Spaghetti">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Cheese Burger (Regular)</h3>
-                <div class="price-container">
-                    <span class="price">600/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/5.png" alt="Set Of Rice">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Shawarma Burger</h3>
+        <div class="price-container">
+          <span class="price">800/=</span>
         </div>
+      </div>
+    </div>
 
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/5.png" alt="Set Of Rice">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Shawarma Burger</h3>
-                <div class="price-container">
-                    <span class="price">800/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/6.png" alt="Set Of Burger 1 Layer">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Double-Cheese Burger</h3>
+        <div class="price-container">
+          <span class="original-price">1250/=</span>
+          <span class="discounted-price">1100/=</span>
         </div>
+      </div>
+    </div>
 
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/6.png" alt="Set Of Burger 1 Layer">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Double-Cheese Burger</h3>
-                <div class="price-container">
-                    <span class="original-price">1250/=</span>
-                    <span class="discounted-price">1100/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/7.png" alt="Set Of Breakfast">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Crispy Chicken Burger (Regular)</h3>
+        <div class="price-container">
+          <span class="price">1200/=</span>
         </div>
+      </div>
+    </div>
 
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/7.png" alt="Set Of Breakfast">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Crispy Chicken Burger (Regular)</h3>
-                <div class="price-container">
-                    <span class="price">1200/=</span>
-                </div>
-            </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/8.png" alt="Happy Meal Chicken & Burger">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Paneer Burger</h3>
+        <div class="price-container">
+          <span class="price">900/=</span>
         </div>
-
-        <div class="menu-item">
-            <div class="menu-item-image">
-                <img src="img/8.png" alt="Happy Meal Chicken & Burger">
-            </div>
-            <div class="menu-item-details">
-                <h3 class="menu-item-title">Paneer Burger</h3>
-                <div class="price-container">
-                    <span class="price">900/=</span>
-                </div>
-            </div>
-        </div>
-    </div><br><br><br>
-    <div class="header1">
-      <h1 class="best-seller-title"> All Submarines</h1>
-      <div class="underline"></div>
-      <p class="best-seller-subtitle">ALL THE SUBMARINES IN SHOP!</p>
+      </div>
+    </div>
+  </div><br><br><br>
+  <div class="header1" id="submarines">
+    <h1 class="best-seller-title"> All Submarines</h1>
+    <div class="underline"></div>
+    <p class="best-seller-subtitle">ALL THE SUBMARINES IN SHOP!</p>
   </div>
 
   <div class="menu-grid">
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/9.png" alt="The Deli Taco Soft">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Crispy Chicken Submarine</h3>
-              <div class="price-container">
-                  <span class="discounted-price">2000/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/9.png" alt="The Deli Taco Soft">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Crispy Chicken Submarine</h3>
+        <div class="price-container">
+          <span class="discounted-price">2000/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/10.png" alt="Vegetable Cheese Pizza">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Chicken Submarine (Large)</h3>
-              <div class="price-container">
-                  <span class="original-price">1800/=</span>
-                  <span class="price">1746/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/10.png" alt="Vegetable Cheese Pizza">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Chicken Submarine (Large)</h3>
+        <div class="price-container">
+          <span class="original-price">1800/=</span>
+          <span class="price">1746/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/11.png" alt="Special Muffin & Omelette">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Grinder Submarine</h3>
-              <div class="price-container">
-                  <span class="discounted-price">2300/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/11.png" alt="Special Muffin & Omelette">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Grinder Submarine</h3>
+        <div class="price-container">
+          <span class="discounted-price">2300/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/12.png" alt="Spaghetti">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">MOS Special Submarine</h3>
-              <div class="price-container">
-                  <span class="price">3000/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/12.png" alt="Spaghetti">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">MOS Special Submarine</h3>
+        <div class="price-container">
+          <span class="price">3000/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/13.png" alt="Set Of Rice">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Double Cheese n Chicken Submarine</h3>
-              <div class="price-container">
-                <span class="original-price">1900/=</span>
-                <span class="discounted-price">1596/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/13.png" alt="Set Of Rice">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Double Cheese n Chicken Submarine</h3>
+        <div class="price-container">
+          <span class="original-price">1900/=</span>
+          <span class="discounted-price">1596/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/14.png" alt="Set Of Burger 1 Layer">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Special Horgie Submarine</h3>
-              <div class="price-container">
-                  <span class="discounted-price">2800/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/14.png" alt="Set Of Burger 1 Layer">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Special Horgie Submarine</h3>
+        <div class="price-container">
+          <span class="discounted-price">2800/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/15.png" alt="Set Of Breakfast">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Cheese Submarine</h3>
-              <div class="price-container">
-                  <span class="price">2200/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/15.png" alt="Set Of Breakfast">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Cheese Submarine</h3>
+        <div class="price-container">
+          <span class="price">2200/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/10.png" alt="Happy Meal Chicken & Burger">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Chicken Submarine (Large)</h3>
-              <div class="price-container">
-                  <span class="price">1800/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/10.png" alt="Happy Meal Chicken & Burger">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Chicken Submarine (Large)</h3>
+        <div class="price-container">
+          <span class="price">1800/=</span>
+        </div>
+      </div>
+    </div>
   </div><br><br><br>
-    <div class="header1">
-      <h1 class="best-seller-title"> All Fries</h1>
-      <div class="underline"></div>
-      <p class="best-seller-subtitle">ALL THE FRIES IN SHOP!</p>
+  <div class="header1" id="french-frice">
+    <h1 class="best-seller-title"> All Fries</h1>
+    <div class="underline"></div>
+    <p class="best-seller-subtitle">ALL THE FRIES IN SHOP!</p>
   </div>
 
   <div class="menu-grid">
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/17.png" alt="The Deli Taco Soft">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Steak Fries (Large)</h3>
-              <div class="price-container">
-                  <span class="discounted-price">1200/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/17.png" alt="The Deli Taco Soft">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Steak Fries (Large)</h3>
+        <div class="price-container">
+          <span class="discounted-price">1200/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/18.png" alt="Vegetable Cheese Pizza">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Steak Fries (Medium)</h3>
-              <div class="price-container">
-                  <span class="price">600/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/18.png" alt="Vegetable Cheese Pizza">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Steak Fries (Medium)</h3>
+        <div class="price-container">
+          <span class="price">600/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/19.png" alt="Special Muffin & Omelette">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">French Fries (Large)</h3>
-              <div class="price-container">
-                  <span class="discounted-price">800/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/19.png" alt="Special Muffin & Omelette">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">French Fries (Large)</h3>
+        <div class="price-container">
+          <span class="discounted-price">800/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/20.png" alt="Spaghetti">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">French Fries (Medium) </h3>
-              <div class="price-container">
-                  <span class="price">650/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/20.png" alt="Spaghetti">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">French Fries (Medium) </h3>
+        <div class="price-container">
+          <span class="price">650/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/21.png" alt="Set Of Rice">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">French Fries (Small)</h3>
-              <div class="price-container">
-                  <span class="price">450/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/21.png" alt="Set Of Rice">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">French Fries (Small)</h3>
+        <div class="price-container">
+          <span class="price">450/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/20.png" alt="Set Of Burger 1 Layer">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Sweet Potato Fries</h3>
-              <div class="price-container">
-                  <span class="discounted-price">600/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/20.png" alt="Set Of Burger 1 Layer">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Sweet Potato Fries</h3>
+        <div class="price-container">
+          <span class="discounted-price">600/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/17.png" alt="Set Of Breakfast">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">Steak Fries</h3>
-              <div class="price-container">
-                  <span class="price">1200/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/17.png" alt="Set Of Breakfast">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Steak Fries</h3>
+        <div class="price-container">
+          <span class="price">1200/=</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="menu-item">
-          <div class="menu-item-image">
-              <img src="img/21.png" alt="Happy Meal Chicken & Burger">
-          </div>
-          <div class="menu-item-details">
-              <h3 class="menu-item-title">French Fries</h3>
-              <div class="price-container">
-                  <span class="price">900/=</span>
-              </div>
-          </div>
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/21.png" alt="Happy Meal Chicken & Burger">
       </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">French Fries</h3>
+        <div class="price-container">
+          <span class="price">900/=</span>
+        </div>
+      </div>
+    </div>
   </div><br><br><br>
-  <div class="header1">
+  <div class="header1" id="pasta">
     <h1 class="best-seller-title"> All Pasta</h1>
     <div class="underline"></div>
     <p class="best-seller-subtitle">ALL THE PASTA IN SHOP!</p>
-</div>
-
-<div class="menu-grid">
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/25.png" alt="The Deli Taco Soft">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Chicken Cheese Pasta</h3>
-            <div class="price-container">
-                <span class="original-price">1600/=</span>
-                <span class="discounted-price">1360/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/26.png" alt="Vegetable Cheese Pizza">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Chicken Penne Pasta</h3>
-            <div class="price-container">
-                <span class="price">1700/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/27.png" alt="Special Muffin & Omelette">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Ground Turkey Pasta Bake</h3>
-            <div class="price-container">
-                <span class="original-price">2900/=</span>
-                <span class="discounted-price">2610/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/28.png" alt="Spaghetti">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Creamy Shrimp Pasta</h3>
-            <div class="price-container">
-                <span class="price">2000/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/27.png" alt="Set Of Rice">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Lemon Butter Pasta</h3>
-            <div class="price-container">
-                <span class="price">1950/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/28.png" alt="Set Of Burger 1 Layer">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Tagliatelle Pasta</h3>
-            <div class="price-container">
-                <span class="original-price">2400/=</span>
-                <span class="discounted-price">2376/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/25.png" alt="Set Of Breakfast">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Chicken n Cheese Pasta</h3>
-            <div class="price-container">
-                <span class="price">1360/=</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-item-image">
-            <img src="img/26.png" alt="Happy Meal Chicken & Burger">
-        </div>
-        <div class="menu-item-details">
-            <h3 class="menu-item-title">Chicken Penne Pasta</h3>
-            <div class="price-container">
-                <span class="price">1700/=</span>
-            </div>
-        </div>
-    </div>
-</div><br><br><br>
-<div class="header1">
-  <h1 class="best-seller-title"> All Beverages</h1>
-  <div class="underline"></div>
-  <p class="best-seller-subtitle">ALL THE BEVERAGES IN SHOP!</p>
-</div>
-
-<div class="menu-grid">
-  <div class="menu-item">
-      <div class="menu-item-image">
-          <img src="img/36.png" alt="The Deli Taco Soft">
-      </div>
-      <div class="menu-item-details">
-          <h3 class="menu-item-title">Sprite (330ml)</h3>
-          <div class="price-container">
-              <span class="discounted-price">1500/=</span>
-          </div>
-      </div>
   </div>
 
-  <div class="menu-item">
+  <div class="menu-grid">
+    <div class="menu-item">
       <div class="menu-item-image">
-          <img src="img/34.png" alt="Vegetable Cheese Pizza">
+        <img src="img/25.png" alt="The Deli Taco Soft">
       </div>
       <div class="menu-item-details">
-          <h3 class="menu-item-title">Pepsi (330ml)</h3>
-          <div class="price-container">
-              <span class="price">990/=</span>
-          </div>
+        <h3 class="menu-item-title">Chicken Cheese Pasta</h3>
+        <div class="price-container">
+          <span class="original-price">1600/=</span>
+          <span class="discounted-price">1360/=</span>
+        </div>
       </div>
-  </div>
+    </div>
 
-  <div class="menu-item">
+    <div class="menu-item">
       <div class="menu-item-image">
-          <img src="img/35.png" alt="Special Muffin & Omelette">
+        <img src="img/26.png" alt="Vegetable Cheese Pizza">
       </div>
       <div class="menu-item-details">
-          <h3 class="menu-item-title">Coca-Cola (330ml)</h3>
-          <div class="price-container">
-              <span class="discounted-price">1230/=</span>
-          </div>
+        <h3 class="menu-item-title">Chicken Penne Pasta</h3>
+        <div class="price-container">
+          <span class="price">1700/=</span>
+        </div>
       </div>
-  </div>
+    </div>
 
-  
-
-  <div class="menu-item">
+    <div class="menu-item">
       <div class="menu-item-image">
-          <img src="img/37.png" alt="Set Of Rice">
+        <img src="img/27.png" alt="Special Muffin & Omelette">
       </div>
       <div class="menu-item-details">
-          <h3 class="menu-item-title">Mirinda (330ml)</h3>
-          <div class="price-container">
-              <span class="price">850/=</span>
-          </div>
+        <h3 class="menu-item-title">Ground Turkey Pasta Bake</h3>
+        <div class="price-container">
+          <span class="original-price">2900/=</span>
+          <span class="discounted-price">2610/=</span>
+        </div>
       </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/2.jpg" alt="Spaghetti">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Creamy Shrimp Pasta</h3>
+        <div class="price-container">
+          <span class="price">2000/=</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/27.png" alt="Set Of Rice">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Lemon Butter Pasta</h3>
+        <div class="price-container">
+          <span class="price">1950/=</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/3.jpg" alt="Set Of Burger 1 Layer">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Tagliatelle Pasta</h3>
+        <div class="price-container">
+          <span class="original-price">2400/=</span>
+          <span class="discounted-price">2376/=</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/25.png" alt="Set Of Breakfast">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Chicken n Cheese Pasta</h3>
+        <div class="price-container">
+          <span class="price">1360/=</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/26.png" alt="Happy Meal Chicken & Burger">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Chicken Penne Pasta</h3>
+        <div class="price-container">
+          <span class="price">1700/=</span>
+        </div>
+      </div>
+    </div>
+  </div><br><br><br>
+  <div class="header1" id="beverages">
+    <h1 class="best-seller-title"> All Beverages</h1>
+    <div class="underline"></div>
+    <p class="best-seller-subtitle">ALL THE BEVERAGES IN SHOP!</p>
   </div>
-</div><br><br>
 
-<center><a href="items.html"><button type="button" class="btn btn-primary btn-lg">Most Selling Item's</button></a></center>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/36.png" alt="The Deli Taco Soft">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Sprite (330ml)</h3>
+        <div class="price-container">
+          <span class="discounted-price">1500/=</span>
+        </div>
+      </div>
+    </div>
 
-<br><br><br>
-<section id="testimonials">
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/34.png" alt="Vegetable Cheese Pizza">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Pepsi (330ml)</h3>
+        <div class="price-container">
+          <span class="price">990/=</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/35.png" alt="Special Muffin & Omelette">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Coca-Cola (330ml)</h3>
+        <div class="price-container">
+          <span class="discounted-price">1230/=</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="menu-item">
+      <div class="menu-item-image">
+        <img src="img/37.png" alt="Set Of Rice">
+      </div>
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Mirinda (330ml)</h3>
+        <div class="price-container">
+          <span class="price">850/=</span>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+
+  <center><a href="items.html"><button type="button" class="btn btn-primary btn-lg">Most Selling Item's</button></a>
+  </center>
+
+  <br><br><br>
+  <section id="testimonials">
     <div class="testimonial-heading">
-        <span>Customer's Comments</span>
-        <h4>Reviews</h4>
+      <span>Customer's Comments</span>
+      <h4>Reviews</h4>
     </div>
     <div class="testimonial-box-container">
-        <div class="testimonial-box">
-            <div class="box-top">
-                <div class="profile">
-                    <div class="profile-img">
-                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                    </div>
-                    <div class="name-user">
-                        <strong>Liam mendes</strong>
-                        <span>@liammendes</span>
-                    </div>
-                </div>
-                <div class="reviews">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
+      <div class="testimonial-box">
+        <div class="box-top">
+          <div class="profile">
+            <div class="profile-img">
+              <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
             </div>
-            <div class="client-comment">
-                <p>The flavors were absolutely incredible! Every bite transported me to culinary heaven. The presentation was artistic and the service impeccable. I can't stop thinking about their signature dish - worth every penny!</p>
+            <div class="name-user">
+              <strong>Liam mendes</strong>
+              <span>@liammendes</span>
             </div>
+          </div>
+          <div class="reviews">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
         </div>
-        <div class="testimonial-box">
-            <div class="box-top">
-                <div class="profile">
-                    <div class="profile-img">
-                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                    </div>
-                    <div class="name-user">
-                        <strong>Noah Wood</strong>
-                        <span>@noahwood</span>
-                    </div>
-                </div>
-                <div class="reviews">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-            </div>
-            <div class="client-comment">
-                <p>What a delightful discovery! The fusion concept works brilliantly, creating unique flavor combinations I've never experienced before. The chef clearly takes pride in sourcing local, seasonal ingredients. Can't wait to return!</p>
-            </div>
+        <div class="client-comment">
+          <p>The flavors were absolutely incredible! Every bite transported me to culinary heaven. The presentation was
+            artistic and the service impeccable. I can't stop thinking about their signature dish - worth every penny!
+          </p>
         </div>
-        <div class="testimonial-box">
-            <div class="box-top">
-                <div class="profile">
-                    <div class="profile-img">
-                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                    </div>
-                    <div class="name-user">
-                        <strong>Oliver Queen</strong>
-                        <span>@oliverqueen</span>
-                    </div>
-                </div>
-                <div class="reviews">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
+      </div>
+      <div class="testimonial-box">
+        <div class="box-top">
+          <div class="profile">
+            <div class="profile-img">
+              <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
             </div>
-            <div class="client-comment">
-                <p>Fresh ingredients shine in every dish at this hidden gem. The menu offers perfect variety without being overwhelming. Staff recommendations were spot-on, and the ambiance created the perfect setting for our anniversary celebration.</p>
+            <div class="name-user">
+              <strong>Noah Wood</strong>
+              <span>@noahwood</span>
             </div>
+          </div>
+          <div class="reviews">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
         </div>
+        <div class="client-comment">
+          <p>What a delightful discovery! The fusion concept works brilliantly, creating unique flavor combinations I've
+            never experienced before. The chef clearly takes pride in sourcing local, seasonal ingredients. Can't wait
+            to return!</p>
+        </div>
+      </div>
+      <div class="testimonial-box">
+        <div class="box-top">
+          <div class="profile">
+            <div class="profile-img">
+              <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+            </div>
+            <div class="name-user">
+              <strong>Oliver Queen</strong>
+              <span>@oliverqueen</span>
+            </div>
+          </div>
+          <div class="reviews">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="client-comment">
+          <p>Fresh ingredients shine in every dish at this hidden gem. The menu offers perfect variety without being
+            overwhelming. Staff recommendations were spot-on, and the ambiance created the perfect setting for our
+            anniversary celebration.</p>
+        </div>
+      </div>
   </section>
+  <br><br>
+
+  <div id="gallery01">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        <img src="img/Gallery4.jpg"
+          class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+
+        <img src="img/Gallery1.jpg"
+          class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
+      </div>
+
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <img src="img/Gallery3.jpg"
+          class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+
+        <img src="img/Gallery5.jpg"
+          class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+      </div>
+
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <img src="img/Gallery6.jpg"
+          class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+
+        <img src="img/Gallery2.jpg"
+          class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
+      </div>
+    </div>
+  </div>
   <br><br><br>
   <center>
     <form class="form" id="newsletter-form">
       <span class="title1">Subscribe to our newsletter.</span>
-      <p class="description">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.</p>
+      <p class="description">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor
+        incididunt dolore.</p>
       <div>
         <input placeholder="Enter your email" type="email" name="email" id="email-address" required>
         <button type="submit">Subscribe</button>
       </div>
     </form>
   </center>
-  
-  <!-- Success Message (hidden by default) -->
+
   <div class="modern-success-message" id="success-message" style="display: none;">
     <button class="close-btn" id="close-btn">×</button>
     <div class="icon-wrapper">
-      <svg
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-width="2"
-        stroke="currentColor"
-        fill="none"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        class="success-icon"
-      >
+      <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="success-icon">
         <path d="M9 12l2 2 4-4"></path>
         <circle r="10" cy="12" cx="12"></circle>
       </svg>
@@ -828,220 +867,89 @@
       <div class="message">Thank you for subscribing!</div>
     </div>
   </div>
-  
-  <style>
-    /* From Uiverse.io by kyle1dev */ 
-    .modern-success-message {
-      display: flex;
-      align-items: center;
-      padding: 10px 15px;
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-      color: white;
-      font-family: "Poppins", sans-serif;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      overflow: hidden;
-      transition:
-        transform 0.3s ease-in-out,
-        box-shadow 0.3s ease-in-out;
-      z-index: 1000;
-    }
-  
-    .modern-success-message:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-    }
-  
-    .close-btn {
-      position: absolute;
-      top: 12px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-  
-    .close-btn:hover {
-      opacity: 1;
-    }
-  
-    .icon-wrapper {
-      background-color: rgba(255, 255, 255, 0.15);
-      padding: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-  
-    .success-icon {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .text-wrapper .title {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-  
-    .text-wrapper .message {
-      margin-top: 6px;
-      font-size: 14px;
-      opacity: 0.85;
-    }
-  
-    .modern-success-message::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0)
-      );
-      transform: rotate(45deg);
-      transition: all 0.5s ease-in-out;
-    }
-  
-    .modern-success-message:hover::before {
-      transform: rotate(90deg);
-      opacity: 0.5;
-    }
-  </style>
-  
-  <script>
-    document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const email = document.getElementById('email-address').value;
-      const successMessage = document.getElementById('success-message');
-      
-      if(email) {
-        // Show success message
-        successMessage.style.display = 'flex';
-        
-        // Hide form (optional)
-        // document.getElementById('newsletter-form').style.display = 'none';
-        
-        // Clear the input
-        document.getElementById('email-address').value = '';
-        
-        // Auto-hide after 5 seconds
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 5000);
-      }
-    });
-    
-    // Close button functionality
-    document.getElementById('close-btn').addEventListener('click', function() {
-      document.getElementById('success-message').style.display = 'none';
-    });
-  </script>
+
+
   <br><br><br><br>
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3 class="footer-heading">About</h3>
-        <ul class="footer-links">
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Awards</a></li>
-          <li><a href="#">Our Team</a></li>
-          <li><a href="#">Corner</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3 class="footer-heading">Company</h3>
-        <ul class="footer-links">
-          <li><a href="#">Our Services</a></li>
-          <li><a href="#">Clients</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Press</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column">
-        <h3 class="footer-heading">Resources</h3>
-        <ul class="footer-links">
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Newsletter</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-column" id="subscribe-column">
-        <h3 class="footer-heading">Subscribe</h3>
-        <p class="footer-text">Get digital marketing updates in your mailbox</p>
-        
-      </div>
-      <div class="social-icons">
-        <a href="#" class="social-icon" aria-label="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-          </svg>
-        </a>
-        <a href="#" class="social-icon" aria-label="Twitter">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
-          </svg>
-        </a>
-        <a href="#" class="social-icon" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-          </svg>
-        </a>
-        <a href="#" class="social-icon" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <div class="contact-info">
-        <span class="phone-number">(+94) 72 215 1182</span>
+  <footer>
+    <div class="container" id="footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="img/1.png" alt="MOS Burgers Logo">
+            <h2>MOS Burgers</h2>
+          </div>
+          <p class="footer-text">Experience the finest burgers and submarines in town. Made with premium ingredients for
+            the ultimate taste experience.</p>
+          <div class="social-links">
+            <img src="img/facebook.png" alt=""><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <img src="img/twitter.png" alt=""><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <img src="img/instagram.png" alt=""><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <img src="img/youtube.png" alt=""><a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#shop-by-categeory"><i class="fas fa-chevron-right"></i> Our Menu</a></li>
+            <li><a href="burger.html"><i class="fas fa-chevron-right"></i> Order Now</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Opening Hours</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-clock"></i> Monday - Friday: 10:00 AM - 10:00 PM</li>
+            <li><i class="fas fa-clock"></i> Saturday: 11:00 AM - 11:00 PM</li>
+            <li><i class="fas fa-clock"></i> Sunday: 11:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Contact Info</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>123 Galle Road, Colombo 03, Sri Lanka</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>+94 72 215 1182</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@mosburgers.com</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="copyright">
-        <p>Copyright ©2025 All rights reserved. | This template is made with <span class="heart">♥</span> by <a href="https://Sudamsiths.com" class="company-link">Sudamsiths.com</a></p>
+        <p>© 2025 MOS Burgers. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
-  
 
 
 
 
-    <script src="app.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src='https://kit.fontawesome.com/c8e4d183c2.js'></script>
-    <script>
-      AOS.init();
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+
+  <script src="app.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src='https://kit.fontawesome.com/c8e4d183c2.js'></script>
+  <script>
+    AOS.init({
+      duration: 3000
+    });
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
