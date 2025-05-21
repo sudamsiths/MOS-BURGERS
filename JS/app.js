@@ -30,23 +30,32 @@ function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
 }
 lightGallery(document.getElementById('lg-srcset-demo'));
-    document.getElementById('newsletter-form').addEventListener('submit', function (event) {
-      event.preventDefault();
+document.getElementById('newsletter-form').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-      const email = document.getElementById('email-address').value;
-      const successMessage = document.getElementById('success-message');
+  const email = document.getElementById('email-address').value;
+  const successMessage = document.getElementById('success-message');
 
-      if (email) {
-        successMessage.style.display = 'flex';
+  if (email) {
+    successMessage.style.display = 'flex';
 
-        document.getElementById('email-address').value = '';
+    document.getElementById('email-address').value = '';
 
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 5000);
-      }
-    });
+    setTimeout(() => {
+      successMessage.style.display = 'none';
+    }, 5000);
+  }
+});
 
-    document.getElementById('close-btn').addEventListener('click', function () {
-      document.getElementById('success-message').style.display = 'none';
-    });
+document.getElementById('close-btn').addEventListener('click', function () {
+  document.getElementById('success-message').style.display = 'none';
+});
+window.addEventListener('load', function () {
+  const overlay = document.getElementById('promo-overlay');
+  overlay.style.visibility = 'visible';
+  overlay.style.opacity = '1';
+});
+
+function closeBox() {
+    document.getElementById("myBox").style.display = "none";
+  }
