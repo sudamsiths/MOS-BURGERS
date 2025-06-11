@@ -89,24 +89,6 @@
                         <label for="address">Address</label>
                         <textarea id="address" name="address" placeholder="Enter your full address" required></textarea>
                     </div>
-
-                    <div class="input-group">
-                        <label for="country">Country</label>
-                        <select id="country" name="country" required>
-                            <option value="" disabled selected>Select your country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="AU">Australia</option>
-                            <option value="DE">Germany</option>
-                            <option value="FR">France</option>
-                            <option value="JP">Japan</option>
-                            <option value="IN">India</option>
-                            <option value="BR">Brazil</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-
                     <div class="input-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
@@ -133,7 +115,6 @@
                             <select id="birth-day" name="birth-day" required>
                                 <option value="" disabled selected>Day</option>
                                 <script>
-                                    // Generate days 1-31
                                     for (let i = 1; i <= 31; i++) {
                                         document.write(`<option value="${i}">${i}</option>`);
                                     }
@@ -142,7 +123,6 @@
                             <select id="birth-year" name="birth-year" required>
                                 <option value="" disabled selected>Year</option>
                                 <script>
-                                    // Generate years from current year - 100 to current year - 13
                                     const currentYear = new Date().getFullYear();
                                     for (let i = currentYear - 100; i <= currentYear - 13; i++) {
                                         document.write(`<option value="${i}">${i}</option>`);
@@ -160,22 +140,18 @@
 
             <script>
                 function signuppage() {
-                    // You can add JavaScript functionality here if needed
-                    // For example, form validation or AJAX submission
                     console.log("Sign up form submitted");
-                    return false; // Prevent form submission for demo
+                    return false;
                 }
 
                 document.querySelector('.form').addEventListener('submit', function (e) {
-                    e.preventDefault(); // Prevent form submission for demo
+                    e.preventDefault();
 
                     const password = document.getElementById('password').value;
                     const confirmPassword = document.getElementById('confirm-password').value;
 
                     if (password === confirmPassword) {
                         console.log("Passwords match!");
-                        // You can proceed with form submission here
-                        // this.submit(); // Uncomment to actually submit the form
                     } else {
                         alert("Passwords do not match. Please check your password.");
                         document.getElementById('password').focus();
