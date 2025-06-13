@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
 
     <title>Restaurant Menu & Cart</title>
     <style>
@@ -247,12 +249,29 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        #cus-addbtn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: rgb(198, 231, 9);
+            color: #000;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #cus-addbtn:hover {
+            background-color: rgb(180, 210, 5);
+            transform: scale(1.03);
+        }
     </style>
 </head>
 
 <body>
     <a href="index.html"><button type="button" class="btn-close" aria-label="Close"></button></a><br>
-    
+
     <div class="master-container">
         <div class="card menu">
             <label class="title">Restaurant Menu</label>
@@ -283,7 +302,7 @@
                     <div class="menu-item-price">රු.1600.00</div>
                     <button class="add-btn">Add</button>
                 </div>
-                <div class="menu-item" >
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Chicken Burger (Regular)</div>
                         <div class="menu-item-code">B1005</div>
@@ -301,7 +320,7 @@
                 </div>
             </div>
 
-             <div class="menu-category">
+            <div class="menu-category">
                 <div class="category-title">French Fries</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
@@ -338,12 +357,12 @@
                     <div class="menu-item-price">රු.600.00 </div>
                     <button class="add-btn">Add</button>
                 </div>
-               
+
             </div>
 
             <div class="menu-category">
                 <div class="category-title">Submarines</div>
-                <div class="menu-item" >
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Crispy Chicken Submarine (Large)</div>
                         <div class="menu-item-code">B1016</div>
@@ -386,7 +405,7 @@
                     <button class="add-btn">Add</button>
                 </div>
 
-                 <div class="menu-item">
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Grinder Submarine</div>
                         <div class="menu-item-code">B1020</div>
@@ -396,7 +415,7 @@
                 </div>
             </div>
 
-             <div class="menu-category">
+            <div class="menu-category">
                 <div class="category-title">Pasta</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
@@ -406,7 +425,7 @@
                     <div class="menu-item-price">රු.1600.00 <span class="menu-item-discount">15% off</span></div>
                     <button class="add-btn">Add</button>
                 </div>
-                <div class="menu-item" >
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Ground Turkey Pasta Bake</div>
                         <div class="menu-item-code">B1033</div>
@@ -422,7 +441,7 @@
                     <div class="menu-item-price">රු.2000.00</div>
                     <button class="add-btn">Add</button>
                 </div>
-                 <div class="menu-item">
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Lemon Butter Pasta</div>
                         <div class="menu-item-code">B1035</div>
@@ -432,7 +451,7 @@
                 </div>
             </div>
 
-             <div class="menu-category">
+            <div class="menu-category">
                 <div class="category-title">Chicken</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
@@ -442,7 +461,7 @@
                     <div class="menu-item-price">රු.2300.00 <span class="menu-item-discount">10% off</span></div>
                     <button class="add-btn">Add</button>
                 </div>
-                <div class="menu-item" >
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Fried Chicken (Small)</div>
                         <div class="menu-item-code">B1038</div>
@@ -458,7 +477,7 @@
                     <div class="menu-item-price">රු.2100.00 </div>
                     <button class="add-btn">Add</button>
                 </div>
-                 <div class="menu-item">
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Hot Wings (Large)</div>
                         <div class="menu-item-code">B1041</div>
@@ -478,7 +497,7 @@
                     <div class="menu-item-price">රු.1230.00</div>
                     <button class="add-btn">Add</button>
                 </div>
-                <div class="menu-item" >
+                <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Pepsi (330ml)</div>
                         <div class="menu-item-code">B1044</div>
@@ -513,7 +532,7 @@
                 </form>
             </div>
             <br>
-            
+
             <div id="checkout-customer">
                 <div class="card checkout">
                     <div class="order-section">
@@ -538,15 +557,14 @@
                             <!-- Customer Information -->
                             <div class="mb-3">
                                 <h6 class="fw-bold">Customer Information
-                                    <i class="fas fa-user"></i>
+                                    <button id="cus-addbtn" class="fa-solid fa-plus"></i></button>
                                 </h6>
                                 <div class="mb-2">
                                     <input type="text" class="form-control customer-input"
                                         placeholder="Enter Phone Number">
                                 </div>
                                 <div class="mb-2">
-                                    <input type="text" class="form-control customer-input"
-                                        placeholder="Customer Name">
+                                    <input type="text" class="form-control customer-input" placeholder="Customer Name">
                                 </div>
                                 <div class="mb-2">
                                     <input type="email" class="form-control customer-input"
@@ -556,7 +574,7 @@
 
                             <hr>
                         </div>
-                        
+
                         <label class="title">Checkout</label>
                         <div class="details">
                             <span>Your cart subtotal:</span>

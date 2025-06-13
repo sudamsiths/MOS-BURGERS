@@ -33,7 +33,7 @@ nav {
     padding: 20px;
     display: flex;
     justify-content: flex-end;
-    background-color: rgba(26, 26, 26, 0.8);
+    background-color: rgba(168, 151, 151, 0.8);
     backdrop-filter: blur(10px);
     z-index: 100;
 }

@@ -4,3 +4,8 @@ function toggleDarkMode() {
 function closeBox() {
     document.getElementById("myBox").style.display = "none";
   }
+
+function logoutbyn(){
+   window.location.href = "login.html";
+  
+}

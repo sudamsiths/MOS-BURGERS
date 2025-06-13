@@ -4,32 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Login Page</title>
     <link rel="stylesheet" href="/CSS/log.css">
 </head>
 
 <body>
     <img src="/img/back.jpg" alt="" id="background-img">
-    <div id="loginpage">
+
+    <div id="loginpage" data-aos="zoom-in">
         <div class="form-container">
             <p class="title">Login</p>
             <form class="form">
                 <div class="input-group">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="">
+                    <input type="text" id="username" placeholder="Username">
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="">
+                    <input type="password" id="password" placeholder="Password">
                     <div class="forgot">
                         <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
                     </div>
                 </div>
-                <button class="sign" onclick="signinbutton()">Sign in</button>
+               <button onclick="signinbutton()" class="sign">Sign in</button>
             </form>
         </div>
     </div>
     <script src="/JS/login.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
 </body>
 
 </html>
