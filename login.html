@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <img src="/img/back.jpg" alt="" id="background-img">
     <div id="loginpage">
         <div class="form-container">
             <p class="title">Login</p>
@@ -26,91 +27,8 @@
                 </div>
                 <button class="sign" onclick="signinbutton()">Sign in</button>
             </form>
-            
-            <div class="form-container">
-                <h1 class="title">Create Account</h1>
-                <form class="form">
-                    <div class="name-group">
-                        <div class="input-group">
-                            <label for="firstname">First Name</label>
-                            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name"
-                                required>
-                        </div>
-                        <div class="input-group">
-                            <label for="lastname">Last Name</label>
-                            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name"
-                                required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Create a password" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" name="confirm-password"
-                            placeholder="Confirm your password" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="address">Address</label>
-                        <textarea id="address" name="address" placeholder="Enter your full address" required></textarea>
-                    </div>
-                    <div class="input-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                    </div>
-
-                    <div class="input-group">
-                        <label>Date of Birth</label>
-                        <div class="birthday-group">
-                            <select id="birth-month" name="birth-month" required>
-                                <option value="" disabled selected>Month</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
-                                <option value="10">October</option>
-                                <option value="11">November</option>
-                                <option value="12">December</option>
-                            </select>
-                            <select id="birth-day" name="birth-day" required>
-                                <option value="" disabled selected>Day</option>
-                                <script>
-                                    for (let i = 1; i <= 31; i++) {
-                                        document.write(`<option value="${i}">${i}</option>`);
-                                    }
-                                </script>
-                            </select>
-                            <select id="birth-year" name="birth-year" required>
-                                <option value="" disabled selected>Year</option>
-                                <script>
-                                    const currentYear = new Date().getFullYear();
-                                    for (let i = currentYear - 100; i <= currentYear - 13; i++) {
-                                        document.write(`<option value="${i}">${i}</option>`);
-                                    }
-                                </script>
-                            </select>
-                        </div>
-                    </div>
-                    <button class="sign" type="submit" onclick="createaccount()">Create Account</button>
-                    <p class="login">Already have an account? <a href="login.html">Log in</a></p>
-                </form>
-            </div>
         </div>
     </div>
-
     <script src="/JS/login.js"></script>
 </body>
 
