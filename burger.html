@@ -266,18 +266,66 @@
             background-color: rgb(180, 210, 5);
             transform: scale(1.03);
         }
+
+        .category-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px;
+        }
+
+        .category-grid button {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 70px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .category-grid button:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+            transform: translateY(-1px);
+        }
+
+        .category-grid button:active {
+            transform: translateY(0);
+            background: #dee2e6;
+        }
+
+        .category-grid button i {
+            font-size: 14px;
+        }
     </style>
 </head>
 
 <body>
-    <a href="index.html"><button type="button" class="btn-close" aria-label="Close"></button></a><br>
+    <a href="interface.html"><button type="button" class="btn-close" aria-label="Close"></button></a><br>
+
 
     <div class="master-container">
         <div class="card menu">
+            <div class="category-grid">
+                <a href="#burger"><button><i class="fa-solid fa-burger"></i> Burger</button></a>
+                <a href="#french-frice"><button><i class="fa-solid fa-french-fries"></i> French Fries</button></a>
+                <a href="#chicken"><button><i class="fa-solid fa-drumstick-bite"></i> Chicken</button></a>
+                <a href="#pasta"><button><i class="fa-solid fa-bowl-food"></i> Pasta</button></a>
+                <a href="#Submarines"><button><i class="fa-solid fa-sandwich"></i> Submarines</button></a>
+                <a href="#Beverages"><button><i class="fa-solid fa-glass-water"></i> Beverages</button></a>
+            </div>
+
+
             <label class="title">Restaurant Menu</label>
 
             <div class="menu-category">
-                <div class="category-title">Burgers</div>
+                <div class="category-title" id="burger">Burgers</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Classic Burger (Large)</div>
@@ -321,7 +369,7 @@
             </div>
 
             <div class="menu-category">
-                <div class="category-title">French Fries</div>
+                <div class="category-title" id="french-frice">French Fries</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Steak Fries (Large)</div>
@@ -361,7 +409,7 @@
             </div>
 
             <div class="menu-category">
-                <div class="category-title">Submarines</div>
+                <div class="category-title" id="Submarines">Submarines</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Crispy Chicken Submarine (Large)</div>
@@ -416,7 +464,7 @@
             </div>
 
             <div class="menu-category">
-                <div class="category-title">Pasta</div>
+                <div class="category-title"  id="pasta">Pasta</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Chicken n Cheese Pasta</div>
@@ -452,7 +500,7 @@
             </div>
 
             <div class="menu-category">
-                <div class="category-title">Chicken</div>
+                <div class="category-title" id="chicken">Chicken</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Fried Chicken (Regular)</div>
@@ -488,7 +536,7 @@
             </div>
 
             <div class="menu-category">
-                <div class="category-title">Beverages</div>
+                <div class="category-title" id="Beverages">Beverages</div>
                 <div class="menu-item">
                     <div class="menu-item-details">
                         <div class="menu-item-name">Coca-Cola (330ml) </div>

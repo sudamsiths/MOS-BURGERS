@@ -6,8 +6,8 @@ function signinbutton(){
     let systempassword="1234"; 
 
    if (systemusername === username && systempassword === password) {
-        window.location.href = "index.html";
-        console.log("Redirecting to index.html...");
+        window.location.href = "interface.html";
+        console.log("Redirecting to interface.html...");
         alert("Login successful!");
     } else {
         alert("Invalid username or password");
