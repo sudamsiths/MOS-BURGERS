@@ -5,7 +5,7 @@ function closeBox() {
     document.getElementById("myBox").style.display = "none";
   }
 
-function logoutbyn(){
+function logoutbtn(){
    window.location.href = "index.html";
   
 }
