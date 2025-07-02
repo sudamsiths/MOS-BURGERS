@@ -1,11 +1,15 @@
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-}
-function closeBox() {
-  document.getElementById("myBox").style.display = "none";
-}
+function signinbutton() {
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
 
-function logoutbtn() {
-  window.location.href = "index.html";
+  let systemusername = "admin";
+  let systempassword = "1234";
 
+  if (systemusername === username && systempassword === password) {
+    window.location.href = "interface.html";
+    console.log("Redirecting to interface.html...");
+    alert("Login successful!");
+  } else {
+    alert("Invalid username or password");
+  }
 }
