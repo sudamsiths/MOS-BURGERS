@@ -10,6 +10,7 @@
   <title>MOS Burgers</title>
   <link rel="icon" href="img/logo.jpg" type="image/x-icon">
   <link rel="stylesheet" href="css/log.css">
+  <link rel="stylesheet" href="css/mobile-nav.css">
   <link href="img/2.png" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -20,7 +21,6 @@
 
 <body>
 
-
   <nav class="main-nav">
     <div class="container">
       <div class="menu-container">
@@ -28,6 +28,14 @@
           <a href="#"><img src="img/logo.jpg" alt="Mos Burgers Logo" class="logo"></a>
           <a href="#"><span class="brand-name">Mos Burgers</span></a>
         </div>
+        
+        <!-- Mobile menu toggle -->
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
         <ul class="main-menu">
           <li><a href="#">HOME</a></li>
           <li><a href="#Burgers">MENU</a></li>
@@ -62,8 +70,6 @@
                   d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
               </svg></button></li>
 
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
           <li>
             <button class="button-logout">
               <i class="fa-solid fa-arrow-right-from-bracket icon-logout"></i>
@@ -71,11 +77,6 @@
             </button>
           </li>
         </ul>
-        <div class="mobile-menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
     </div>
   </nav>
@@ -926,8 +927,7 @@
     </div>
   </footer>
 
-
-  <script src="js/login.js"></script>
+  <script src="js/mobile-nav.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src='https://kit.fontawesome.com/c8e4d183c2.js'></script>
   <script>
