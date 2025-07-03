@@ -1,3 +1,5 @@
+console.log("Hello, welcome to Mos Burgers POS System!");
+
 function signinbutton() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
