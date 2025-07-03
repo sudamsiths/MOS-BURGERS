@@ -303,6 +303,41 @@
         .category-grid button i {
             font-size: 14px;
         }
+
+        .add-item-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: #ee1405;
+            color: white;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .add-item-btn:hover {
+            background-color: #9b0f05;
+            transform: scale(1.05);
+        }
+
+        /* Optional entrance animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .add-item-btn {
+            animation: fadeInUp 0.5s ease-in-out;
+        }
     </style>
 </head>
 
@@ -313,12 +348,13 @@
     <div class="master-container">
         <div class="card menu">
             <div class="category-grid">
-                <a href="#burger"><button><i class="fa-solid fa-burger"></i> Burger</button></a>
-                <a href="#french-frice"><button><i class="fa-solid fa-french-fries"></i> French Fries</button></a>
-                <a href="#chicken"><button><i class="fa-solid fa-drumstick-bite"></i> Chicken</button></a>
-                <a href="#pasta"><button><i class="fa-solid fa-bowl-food"></i> Pasta</button></a>
-                <a href="#Submarines"><button><i class="fa-solid fa-sandwich"></i> Submarines</button></a>
-                <a href="#Beverages"><button><i class="fa-solid fa-glass-water"></i> Beverages</button></a>
+                <a href="#burger"><button style="background-color: #92cf20;"><i class="fa-solid fa-burger" ></i> Burger</button></a>
+                <a href="#french-frice"><button style="background-color: #10d3da;"><i class="fa-solid fa-french-fries"></i> French Fries</button></a>
+                <a href="#chicken"><button style="background-color: #ddda0c;"><i class="fa-solid fa-drumstick-bite"></i> Chicken</button></a>
+                <a href="#pasta"><button style="background-color: #d680cf;"><i class="fa-solid fa-bowl-food"></i> Pasta</button></a>
+                <a href="#Submarines"><button style="background-color: #1f5dbb;"><i class="fa-solid fa-sandwich"></i> Submarines</button></a>
+                <a href="#Beverages"><button  style="background-color: #1f8827;"><i class="fa-solid fa-glass-water"></i> Beverages</button></a>
+                <a href="additemform.html" class="add-item-btn">ADD ITEM +</a>
             </div>
 
 
@@ -605,7 +641,8 @@
                             <!-- Customer Information -->
                             <div class="mb-3">
                                 <h6 class="fw-bold">Customer Information
-                                    <a href="additemform.html"><button id="cus-addbtn" class="fa-solid fa-plus" ></i></button></a>
+                                    <a href="additemform.html"><button id="cus-addbtn"
+                                            class="fa-solid fa-plus"></i></button></a>
                                 </h6>
                                 <div class="mb-2">
                                     <input type="text" class="form-control customer-input"
