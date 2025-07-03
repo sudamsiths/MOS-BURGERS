@@ -214,7 +214,6 @@ function getDateTime() {
     return dateTime;
 }
 
-// example usage: realtime clock
 setInterval(function () {
     currentTime = getDateTime();
     document.getElementById("digital-clock").innerHTML = currentTime;
