@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-
-
     <title>Restaurant Menu & Cart</title>
     <style>
         * {
@@ -24,7 +22,7 @@
 
         .master-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 2fr 1fr 1fr;
             gap: 30px;
             max-width: 1700px;
             margin: 0 auto;
@@ -79,17 +77,32 @@
             cursor: pointer;
         }
 
+        .menu-item-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
         .menu-item-details {
             flex-grow: 1;
+            width: 100%;
         }
 
         .menu-item-name {
             font-weight: 500;
+            margin-bottom: 5px;
         }
 
         .menu-item-price {
             color: #FF8413;
             font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
 
         .menu-item-discount {
@@ -102,63 +115,93 @@
             background-color: #FF8413;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.2s;
+            font-size: 14px;
         }
 
         .add-btn:hover {
             background-color: #e67300;
         }
 
-        .product {
+        /* Cart Styles */
+        .cart-item {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 5px;
         }
 
-        .product>div:first-of-type {
-            flex-grow: 1;
-            margin-left: 10px;
+        .cart-item-info {
+            flex: 1;
         }
 
-        .product span {
-            font-weight: 500;
-        }
-
-        .product p {
-            margin: 5px 0;
-            color: #777;
+        .cart-item-name {
+            font-weight: bold;
             font-size: 14px;
         }
 
-        .quantity {
-            display: flex;
-            align-items: center;
-            margin-right: 10px;
+        .cart-item-code {
+            font-size: 12px;
+            color: #666;
         }
 
-        .quantity button {
-            background-color: #f5f5f5;
-            border: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+        .cart-item-discount {
+            font-size: 11px;
+            color: green;
         }
 
-        .quantity label {
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 5px;
             margin: 0 10px;
         }
 
-        .price {
-            font-weight: bold;
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
         }
+
+        .quantity-btn.minus {
+            background: #dc3545;
+            color: white;
+        }
+
+        .quantity-btn.plus {
+            background: #28a745;
+            color: white;
+        }
+
+        .cart-item-price {
+            font-weight: bold;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 8px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+
 
         .form {
             display: flex;
@@ -212,13 +255,6 @@
             background-color: #e67300;
         }
 
-        .empty-cart {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-        }
-
-        /* Fixed width issues */
         #checkout-customer {
             width: 100%;
             max-width: 100%;
@@ -226,7 +262,7 @@
 
         .order-section {
             width: 100%;
-            padding: 20px;
+            padding: 0;
         }
 
         .customer-input {
@@ -244,22 +280,43 @@
             flex: none !important;
         }
 
+        @media (max-width: 1200px) {
+            .master-container {
+                grid-template-columns: 1.5fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .master-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .checkout-wrapper {
+                grid-column: span 2;
+            }
+        }
+
         @media (max-width: 768px) {
             .master-container {
                 grid-template-columns: 1fr;
             }
+
+            .checkout-wrapper {
+                grid-column: span 1;
+            }
         }
 
         #cus-addbtn {
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
             background-color: rgb(198, 231, 9);
             color: #000;
             border: none;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-left: 10px;
         }
 
         #cus-addbtn:hover {
@@ -269,14 +326,16 @@
 
         .category-grid {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             flex-wrap: wrap;
             gap: 8px;
-            padding: 10px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
 
-        .category-grid button {
-            background: #f8f9fa;
+        .category-grid button,
+        .category-grid {
             border: 1px solid #dee2e6;
             border-radius: 6px;
             padding: 8px 12px;
@@ -287,42 +346,20 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .category-grid button:hover {
-            background: #e9ecef;
-            border-color: #adb5bd;
-            transform: translateY(-1px);
-        }
-
-        .category-grid button:active {
+        .category-grid button:active,
+        .category-grid a.add-item-btn:active {
             transform: translateY(0);
-            background: #dee2e6;
         }
 
-        .category-grid button i {
+        .category-grid button i,
+        .category-grid a.add-item-btn i {
             font-size: 14px;
         }
 
-        .add-item-btn {
-            display: inline-block;
-            padding: 10px 24px;
-            background-color: #ee1405;
-            color: white;
-            font-weight: 600;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 16px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease, background-color 0.3s ease;
-        }
-
-        .add-item-btn:hover {
-            background-color: #9b0f05;
-            transform: scale(1.05);
-        }
-
-        /* Optional entrance animation */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -335,16 +372,432 @@
             }
         }
 
-        .add-item-btn {
-            animation: fadeInUp 0.5s ease-in-out;
-        }
-        .menu-img{
+        .menu-img {
             width: 150px;
             height: 100px;
             border-radius: 5px;
             object-fit: cover;
-            margin-right: 10px;
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        .add-item-btn {
+            background-color: #ff0000;
+            border: 2px solid #ff6666;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            min-width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+        }
+
+        .add-item-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background-image: linear-gradient(to right, #ff4b2b, #ff416c);
+        }
+
+        .add-item-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        a button {
+            transition: all 0.3s ease;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        a button:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: #d8d4d4;
+            border-color: #000;
+            outline-color: #000;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 5px;
+            width: 100%;
+            /* Make it take full width of its parent initially */
+            max-width: 400px;
+            /* Max width for larger screens */
+            margin: 0 auto;
+            /* Center the container horizontally */
+            border: 1px solid #ccc;
+            /* A subtle border for definition */
+        }
+
+        .search-container:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-container:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
             flex-grow: 1;
+            border: 1px solid #ddd;
+            /* Standard border for input */
+            outline: none;
+            /* Remove default outline */
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            /* Subtle inner shadow */
+            padding: 8px 15px;
+            font-size: 16px;
+            border-radius: 20px;
+            background-color: transparent;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #007bff;
+            /* Highlight border on focus */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            /* Glow effect on focus */
+        }
+
+        .search-input::placeholder {
+            color: #000000;
+            /* Softer placeholder color */
+        }
+
+        .search-icon-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-left: 10px;
+            /* Consistent spacing */
+            flex-shrink: 0;
+            /* Prevent button from shrinking */
+        }
+
+        .search-icon-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            /* Slight scale on hover */
+        }
+
+        .search-icon {
+            font-size: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .search-container {
+                padding: 3px;
+                /* Reduce padding on smaller screens */
+                border-radius: 20px;
+                /* Slightly less rounded */
+            }
+
+            .search-input {
+                padding: 6px 12px;
+                /* Adjust input padding */
+                font-size: 14px;
+                /* Smaller font size */
+            }
+
+            .search-icon-button {
+                width: 35px;
+                /* Smaller button */
+                height: 35px;
+                margin-left: 8px;
+                /* Adjust margin */
+            }
+
+            .search-icon {
+                font-size: 18px;
+                /* Smaller icon */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .search-container {
+                max-width: 100%;
+                /* Allow full width on very small screens */
+                border-radius: 15px;
+            }
+
+            .search-input {
+                padding: 5px 10px;
+            }
+
+            .search-icon-button {
+                width: 30px;
+                height: 30px;
+                margin-left: 5px;
+            }
+
+            .search-icon {
+                font-size: 16px;
+            }
+        }
+
+        /* From Uiverse.io by Yaya12085 */
+        /* Styling for the dialog (modal) itself */
+        #container02 {
+            border: none;
+            /* Remove default dialog border */
+            border-radius: 20px;
+            /* Match form's border-radius */
+            padding: 0;
+            /* Remove default dialog padding */
+            background-color: transparent;
+            /* Make background transparent to let form styling show */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            /* Add a subtle shadow */
+            overflow: visible;
+            /* Ensure content is not clipped if it slightly exceeds bounds */
+            position: fixed;
+            /* Explicitly set position */
+            top: 50%;
+            /* Center vertically */
+            left: 50%;
+            /* Center horizontally */
+            transform: translate(-50%, -50%);
+            /* Adjust for perfect centering */
+            max-width: 400px;
+            /* Set a max width for the dialog */
+            width: 90%;
+            /* Responsive width */
+            z-index: 1000;
+            /* Ensure it's above other content */
+            margin: 0;
+            /* Remove default margin */
+        }
+
+        /* Backdrop for the modal */
+        #container02::backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Dim the background when dialog is open */
+            backdrop-filter: blur(3px);
+            /* Optional: add a blur effect to the background */
+        }
+
+
+        /* Your existing .form1 styles */
+        .form1 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+            /* Keep this max-width for the form content */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            /* This makes the .title12 pseudo-elements position correctly */
+            margin: auto;
+            /* Center the form within the dialog if dialog is wider */
+        }
+
+        .title12 {
+            font-size: 28px;
+            color: royalblue;
+            font-weight: 600;
+            letter-spacing: -1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            /* Add some space below the title */
+        }
+
+        .title12::before,
+        .title12::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: royalblue;
+        }
+
+        .title12::before {
+            width: 18px;
+            height: 18px;
+            background-color: royalblue;
+        }
+
+        .title12::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+
+        .message,
+        .signin {
+            color: rgba(88, 87, 87, 0.822);
+            font-size: 14px;
+        }
+
+        .signin {
+            text-align: center;
+        }
+
+        .signin a {
+            color: royalblue;
+        }
+
+        .signin a:hover {
+            text-decoration: underline royalblue;
+        }
+
+        .flex {
+            display: flex;
+            width: 100%;
+            gap: 6px;
+        }
+
+        .form1 label {
+            position: relative;
+        }
+
+        .form1 label .input {
+            width: 100%;
+            padding: 10px 10px 20px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+        }
+
+        /* Optional: Add a smooth transition for input focus */
+        .form1 label .input:focus {
+            border-color: royalblue;
+            box-shadow: 0 0 0 1px royalblue;
+            transition: all 0.2s ease-in-out;
+        }
+
+
+        .form1 label .input+span {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: grey;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+        }
+
+        .form1 label .input:placeholder-shown+span {
+            top: 15px;
+            font-size: 0.9em;
+        }
+
+        .form1 label .input:focus+span,
+        .form1 label .input:valid+span {
+            top: 30px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .form1 label .input:valid+span {
+            color: green;
+        }
+
+        /* Group buttons for better layout */
+        .form-buttons {
+            display: flex;
+            justify-content: space-around;
+            /* Distribute space between buttons */
+            margin-top: 15px;
+            /* Space above buttons */
+            gap: 10px;
+            /* Space between buttons */
+        }
+
+        .submit,
+        .close-button {
+            /* Apply similar styles to both buttons */
+            flex-grow: 1;
+            /* Allow buttons to grow and fill space */
+            border: none;
+            outline: none;
+            background-color: royalblue;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            /* Indicate clickable */
+            transition: .3s ease;
+        }
+
+        .submit:hover {
+            background-color: rgb(56, 90, 194);
+        }
+
+        .close-button {
+            /* Specific styles for the close button if needed */
+            background-color: #ccc;
+            /* Different color for close */
+            color: #333;
+        }
+
+        .close-button:hover {
+            background-color: #bbb;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(0.9);
+                opacity: 1;
+            }
+
+            to {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        /* Styles for the add customer button (if you want to style it) */
+        #cus-addbtn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            /* Adjust size of the plus icon */
+            color: royalblue;
+            /* Color the plus icon */
+            margin-left: 5px;
+            /* Space from "Customer Information" text */
+        }
+
+        #cus-addbtn:hover {
+            color: darkblue;
         }
     </style>
 </head>
@@ -352,57 +805,76 @@
 <body>
     <a href="interface.html"><button type="button" class="btn-close" aria-label="Close"></button></a><br>
 
-
     <div class="master-container">
         <div class="card menu">
             <div class="category-grid">
-                <a href="#burger"><button style="background-color: #92cf20;"><i class="fa-solid fa-burger"></i>
+                <a href="#burger"><button style="background-color: #c9c611; color: rgb(0, 0, 0); font-weight: bold; "><i
+                            class="fa-solid fa-burger"></i>
                         Burger</button></a>
-                <a href="#french-frice"><button style="background-color: #10d3da;"><i
+                <a href="#french-frice"><button
+                        style="background-color: #10d3da; color: rgb(0, 0, 0); font-weight: bold;"><i
                             class="fa-solid fa-french-fries"></i> French Fries</button></a>
-                <a href="#chicken"><button style="background-color: #ddda0c;"><i class="fa-solid fa-drumstick-bite"></i>
+                <a href="#chicken"><button style="background-color: #10b96a; color: rgb(0, 0, 0); font-weight: bold;"><i
+                            class="fa-solid fa-drumstick-bite"></i>
                         Chicken</button></a>
-                <a href="#pasta"><button style="background-color: #d680cf;"><i class="fa-solid fa-bowl-food"></i>
+                <a href="#pasta"><button style="background-color: #d680cf; color: rgb(0, 0, 0); font-weight: bold;"><i
+                            class="fa-solid fa-bowl-food"></i>
                         Pasta</button></a>
-                <a href="#Submarines"><button style="background-color: #1f5dbb;"><i class="fa-solid fa-sandwich"></i>
+                <a href="#Submarines"><button
+                        style="background-color: #00f83e; color: rgb(0, 0, 0); font-weight: bold;"><i
+                            class="fa-solid fa-sandwich"></i>
                         Submarines</button></a>
-                <a href="#Beverages"><button style="background-color: #1f8827;"><i class="fa-solid fa-glass-water"></i>
+                <a href="#Beverages"><button
+                        style="background-color: #288d94; color: rgb(0, 0, 0); font-weight: bold;"><i
+                            class="fa-solid fa-glass-water"></i>
                         Beverages</button></a>
                 <a href="additemform.html" class="add-item-btn">ADD ITEM +</a>
             </div>
 
-
             <label class="title">Restaurant Menu</label>
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search here ..." onkeyup="SearchItems(event)">
+                <div class="search-icon-button" onclick="SearchItems(event)">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+
+
             <div class="menu-category">
                 <div class="category-title" id="burger">Burgers</div>
-                <div class="menu-item" id="menu-burgers">
-                   
+                <div class="menu-container" id="menu-burgers">
+                </div>
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="french-frice">French Fries</div>
-                <div class="menu-item" id="menu-french-fries">
-
+                <div class="menu-container" id="menu-french-fries">
+                </div>
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="Submarines">Submarines</div>
-                <div class="menu-item" id="menu-submariens">
+                <div class="menu-container" id="menu-submariens">
+                </div>
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="pasta">Pasta</div>
-                <div class="menu-item" id="menu-pasta">
+                <div class="menu-container" id="menu-pasta">
+                </div>
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="chicken">Chicken</div>
-                <div class="menu-item" id="menu-chicken">
+                <div class="menu-container" id="menu-chicken">
+                </div>
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="Beverages">Beverages</div>
-                <div class="menu-item" id="menu-beverages">
+                <div class="menu-container" id="menu-beverages">
+                </div>
             </div>
         </div>
 
@@ -413,10 +885,10 @@
             </div>
         </div>
 
-        <div>
+        <div class="checkout-wrapper">
             <div class="card coupons">
                 <label class="title">Apply coupons</label>
-                <form class="form">
+                <form class="form" onsubmit="event.preventDefault(); applyCoupon();">
                     <input type="text" placeholder="Apply your coupons here" class="input_field" id="coupon-input">
                     <button type="submit">Apply</button>
                 </form>
@@ -428,9 +900,7 @@
                     <div class="order-section">
                         <h5 class="fw-bold mb-3">Order Details</h5>
 
-                        <!-- Order Content -->
                         <div class="order-details-container">
-                            <!-- Order ID and Date -->
                             <div class="mb-3">
                                 <div class="d-flex justify-content-between">
                                     <span class="fw-semibold">Order ID:</span>
@@ -444,52 +914,81 @@
 
                             <hr>
 
-                            <!-- Customer Information -->
-                            <div class="mb-3">
-                                <h6 class="fw-bold">Customer Information
-                                    <a href="additemform.html"><button id="cus-addbtn"
-                                            class="fa-solid fa-plus"></i></button></a>
-                                </h6>
-                                <div class="mb-2">
-                                    <input type="text" class="form-control customer-input"
-                                        placeholder="Enter Phone Number">
-                                </div>
-                                <div class="mb-2">
-                                    <input type="text" class="form-control customer-input" placeholder="Customer Name">
-                                </div>
-                                <div class="mb-2">
-                                    <input type="email" class="form-control customer-input"
-                                        placeholder="Customer Email">
-                                </div>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <h6 class="fw-bold">Customer Information
+                                <button id="cus-addbtn" type="button" onclick="dialogonclick()">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </h6>
+
+
+                            <dialog id="container02" class="container02">
+                                <form class="form1">
+                                    <p class="title12">Register </p>
+                                    <label>
+                                        <input required="" placeholder="e.g: 0771234567" type="text" class="input"
+                                            id="customer-number">
+                                    </label>
+                                    <label>
+                                        <input required="" placeholder="Name" type="text" class="input"
+                                            id="customer-name">
+                                    </label>
+                                    <label>
+                                        <input required="" placeholder="Email" type="text" class="input"
+                                            id="customer-email">
+                                    </label>
+                                    <div class="form-buttons">
+                                        <button class="submit" type="submit" onclick="registerCustomer()">Submit</button>
+                                        <button type="button" class="close-button"
+                                            onclick="document.getElementById('container02').close()">Close</button>
+                                    </div>
+                                </form>
+                            </dialog>
+                            <div class="mb-2">
+                                <input type="text" class="form-control customer-input" placeholder="Enter Phone Number"
+                                    id="customer-phoneenterd">
                             </div>
-
-                            <hr>
+                            <div class="mb-2">
+                                <input type="text" class="form-control customer-input" placeholder="Customer Name"
+                                    id="customer-nameenterd">
+                            </div>
+                            <div class="mb-2">
+                                <input type="email" class="form-control customer-input" placeholder="Customer Email"
+                                    id="customer-emailenterd">
+                            </div>
                         </div>
 
-                        <label class="title">Checkout</label>
-                        <div class="details">
-                            <span>Your cart subtotal:</span>
-                            <span id="subtotal">රු.0.00</span>
-                            <span>Discount through applied coupons:</span>
-                            <span id="coupon-discount">රු.0.00</span>
-                            <span>Handling fees:</span>
-                            <span id="shipping">රු.50.00</span>
-                        </div>
-                        <div class="checkout--footer">
-                            <label class="price"><sup>රු</sup><span id="total">50.00</span></label>
-                            <a href="orderdetails.html"><button class="checkout-btn">Place Order</button></a>
-                        </div>
+                        <hr>
+                    </div>
+
+                    <label class="title">Checkout</label>
+                    <div class="details">
+                        <span>Your cart subtotal:</span>
+                        <span id="subtotal">රු.0.00</span>
+                        <span>Discount through applied coupons:</span>
+                        <span id="coupon-discount">රු.0.00</span>
+                        <span>Handling fees:</span>
+                        <span id="shipping">රු.50.00</span>
+                    </div>
+                    <div class="checkout--footer">
+                        <label class="price"><sup>රු</sup><span id="total">50.00</span></label>
+                        <a href="orderdetails.html"><button class="checkout-btn">Place Order</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+    </div>
+    </div>
 
     <script src="js/burger.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+
+        </script>
 </body>
 
 </html>

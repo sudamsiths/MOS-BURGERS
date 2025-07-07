@@ -9,12 +9,8 @@ const categories = {
 
 document.addEventListener('DOMContentLoaded', function() {
     setupTabSwitching();
-    setupFormHandlers();
-    setupImageHandlers();
-    updateAllIdDisplays();
 });
 
-// Setup tab switching functionality - FIXED VERSION
 function setupTabSwitching() {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const formSections = document.querySelectorAll('.form-section');
@@ -24,19 +20,15 @@ function setupTabSwitching() {
             e.preventDefault();
             const targetCategory = this.dataset.category;
             
-            // Remove active class from all tabs
             tabButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Add active class to clicked tab
             this.classList.add('active');
             
-            // Hide all form sections
             formSections.forEach(section => {
                 section.classList.remove('active');
                 section.style.display = 'none';
             });
             
-            // Show target form section
             const targetSection = document.getElementById(targetCategory + '-form');
             if (targetSection) {
                 targetSection.classList.add('active');
@@ -45,4 +37,179 @@ function setupTabSwitching() {
         });
     });
 }
+function AddBeverage(event) {
+    event.preventDefault();
+    const Title = document.getElementById("beverage-title");
+    const price = document.getElementById("beverage-price");
+    const description = document.getElementById("beverage-description");
+    const image = document.getElementById("beverage-image-url");
 
+    const request = {
+        "title": Title.value,
+        "price": parseFloat(price.value),
+        "description": description.value,
+        "imageUrl": image.value
+    };
+
+    fetch("http://localhost:8080/beverage/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.ok ? 
+        (alert("Beverage added successfully!"), clearForm('beverage')) : 
+        Promise.reject("Failed to add beverage"))
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while adding the beverage.");
+    });
+}
+
+function AddBurger(event) {
+    event.preventDefault();
+    const Title = document.getElementById("burger-title");
+    const price = document.getElementById("burger-price");
+    const description = document.getElementById("burger-description");
+    const image = document.getElementById("burger-image-url");
+
+    const request = {
+        "title": Title.value,
+        "price": parseFloat(price.value),
+        "description": description.value,
+        "imageUrl": image.value
+    };
+
+    fetch("http://localhost:8080/burger/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.ok ? 
+        (alert("Burger added successfully!"), clearForm('burger')) : 
+        Promise.reject("Failed to add burger"))
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while adding the burger.");
+    });
+}
+
+function AddChicken(event) {
+    event.preventDefault();
+    const Title = document.getElementById("chicken-title");
+    const price = document.getElementById("chicken-price");
+    const description = document.getElementById("chicken-description");
+    const image = document.getElementById("chicken-image-url");
+
+    const request = {
+        "title": Title.value,
+        "price": parseFloat(price.value),
+        "description": description.value,
+        "imageUrl": image.value
+    };
+
+    fetch("http://localhost:8080/chicken/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.ok ? 
+        (alert("Chicken item added successfully!"), clearForm('chicken')) : 
+        Promise.reject("Failed to add chicken item"))
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while adding the chicken item.");
+    });
+}
+
+function AddFries(event) {
+    event.preventDefault();
+    const Title = document.getElementById("fries-title");
+    const price = document.getElementById("fries-price");
+    const description = document.getElementById("fries-description");
+    const image = document.getElementById("fries-image-url");
+
+    const request = {
+        "title": Title.value,
+        "price": parseFloat(price.value),
+        "description": description.value,
+        "imageUrl": image.value
+    };
+
+    fetch("http://localhost:8080/fries/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.ok ? 
+        (alert("Fries item added successfully!"), clearForm('fries')) : 
+        Promise.reject("Failed to add fries item"))
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while adding the fries item.");
+    });
+}
+
+function AddPasta(event) {
+    event.preventDefault();
+    const Title = document.getElementById("pasta-title");
+    const price = document.getElementById("pasta-price");
+    const description = document.getElementById("pasta-description");
+    const image = document.getElementById("pasta-image-url");
+
+    const request = {
+        "title": Title.value,
+        "price": parseFloat(price.value),
+        "description": description.value,
+        "imageUrl": image.value
+    };
+
+    fetch("http://localhost:8080/pasta/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.ok ? 
+        (alert("Pasta item added successfully!"), clearForm('pasta')) : 
+        Promise.reject("Failed to add pasta item"))
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while adding the pasta item.");
+    });
+}
+
+function AddSubmarine(event) {
+    event.preventDefault();
+    const Title = document.getElementById("submarine-title");
+    const price = document.getElementById("submarine-price");
+    const description = document.getElementById("submarine-description");
+    const image = document.getElementById("submarine-image-url");
+
+    const request = {
+        "title": Title.value,
+        "price": parseFloat(price.value),
+        "description": description.value,
+        "imageUrl": image.value
+    };
+
+    fetch("http://localhost:8080/submarines/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response.ok ? 
+        (alert("Submarine added successfully!"), clearForm('submarine')) : 
+        Promise.reject("Failed to add submarine"))
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Something went wrong while adding the submarine.");
+    });
+}
+
+function clearForm(formType) {
+    document.getElementById(`${formType}-title`).value = '';
+    document.getElementById(`${formType}-price`).value = '';
+    document.getElementById(`${formType}-description`).value = '';
+    document.getElementById(`${formType}-image-url`).value = '';
+    const preview = document.getElementById(`${formType}-image-preview`);
+    if (preview) preview.src = '';
+}

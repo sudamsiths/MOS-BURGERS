@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Items Management</title>
     <link rel="stylesheet" href="css/additem.css">
 </head>
+
 <body>
     <a href="interface.html"><button type="button" class="btn-close" aria-label="Close">x</button></a><br>
     <div class="container">
@@ -27,263 +29,264 @@
             <div id="beverage-form" class="form-section active">
                 <div class="form-container">
                     <h2 class="form-title">Add New Beverage</h2>
-                    <form id="beverage-form-element">
-                        
+                   <form id="beverage-form-element" onsubmit="AddBeverage(event)">
                         <div class="form-grid">
+                            <!-- Title -->
                             <div class="form-group">
-                                <label for="beverage-title" >Title:</label>
-                                <input type="text" id="beverage-title" placeholder="Beverage Title" name="title" required>
+                                <label for="beverage-title">Title:</label>
+                                <input type="text" id="beverage-title" name="title" placeholder="Beverage Title">
                             </div>
+
+                            <!-- Price -->
                             <div class="form-group">
-                                <label for="beverage-price">Price ($):</label>
-                                <input type="number" id="beverage-price" name="price" step="0.01" min="0" required>
+                                <label for="beverage-price">Price (රු):</label>
+                                <input type="number" id="beverage-price" name="price" step="0.01" min="0">
                             </div>
+
+                            <!-- Image URL and Preview -->
                             <div class="form-group">
-                                <label for="beverage-image">Image:</label>
-                                <div class="file-input-container">
-                                    <input type="file" id="beverage-image-file" class="file-input-hidden" accept="image/*">
-                                    <button type="button" class="file-input-btn" onclick="document.getElementById('beverage-image-file').click()">
-                                        📁 Choose Image File
-                                    </button>
-                                    <div class="image-info" id="beverage-image-info">No file selected</div>
-                                    <img id="beverage-image-preview" class="image-preview" alt="Image preview">
-                                </div>
-                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Or enter image URL" style="margin-top: 10px;">
+                                <label for="beverage-image-url">Image URL:</label>
+                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Enter image URL"
+                                    style="margin-bottom: 10px;">
+                                <img id="beverage-image-preview" class="image-preview" alt="Image preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
+
+                            <!-- Description -->
                             <div class="form-group">
                                 <label for="beverage-description">Description:</label>
                                 <textarea id="beverage-description" name="description" rows="3"></textarea>
                             </div>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="btn-container">
                             <button type="submit" class="btn btn-primary">Add Beverage</button>
-                            <button type="button" class="btn btn-secondary" >Clear Form</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
                         </div>
                     </form>
                 </div>
-                <div class="preview-section">
-                    <h3 class="preview-title">Beverages List</h3>
-                    <div id="beverage-list" class="empty-state">No beverages added yet</div>
-                </div>
             </div>
+
 
             <div id="burger-form" class="form-section">
                 <div class="form-container">
                     <h2 class="form-title">Add New Burger</h2>
-                    <form id="burger-form-element">
-                       
+                    <form id="beverage-form-element" onsubmit="AddBurger(event)">
                         <div class="form-grid">
+                            <!-- Title -->
                             <div class="form-group">
-                                <label for="burger-title">Title:</label>
-                                <input type="text" id="burger-title" placeholder="Burger Title" name="title" required>
+                                <label for="beverage-title">Title:</label>
+                                <input type="text" id="beverage-title" name="title" placeholder="Beverage Title">
                             </div>
+
+                            <!-- Price -->
                             <div class="form-group">
-                                <label for="burger-price">Price ($):</label>
-                                <input type="number" id="burger-price" name="price" step="0.01" min="0" required>
+                                <label for="beverage-price">Price (රු):</label>
+                                <input type="number" id="beverage-price" name="price" step="0.01" min="0">
                             </div>
+
+                            <!-- Image URL and Preview -->
                             <div class="form-group">
-                                <label for="burger-image">Image:</label>
-                                <div class="file-input-container">
-                                    <input type="file" id="burger-image-file" class="file-input-hidden" accept="image/*">
-                                    <button type="button" class="file-input-btn" onclick="document.getElementById('burger-image-file').click()">
-                                        📁 Choose Image File
-                                    </button>
-                                    <div class="image-info" id="burger-image-info">No file selected</div>
-                                    <img id="burger-image-preview" class="image-preview" alt="Image preview">
-                                </div>
-                                <input type="url" id="burger-image-url" name="imageUrl" placeholder="Or enter image URL" style="margin-top: 10px;">
+                                <label for="beverage-image-url">Image URL:</label>
+                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Enter image URL"
+                                    style="margin-bottom: 10px;">
+                                <img id="beverage-image-preview" class="image-preview" alt="Image preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
+
+                            <!-- Description -->
                             <div class="form-group">
-                                <label for="burger-description">Description:</label>
-                                <textarea id="burger-description" name="description" rows="3"></textarea>
+                                <label for="beverage-description">Description:</label>
+                                <textarea id="beverage-description" name="description" rows="3"></textarea>
                             </div>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="btn-container">
                             <button type="submit" class="btn btn-primary">Add Burger</button>
-                            <button type="button" class="btn btn-secondary" >Clear Form</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
                         </div>
                     </form>
                 </div>
-                <div class="preview-section">
-                    <h3 class="preview-title">Burgers List</h3>
-                    <div id="burger-list" class="empty-state">No burgers added yet</div>
-                </div>
+
             </div>
 
             <div id="chicken-form" class="form-section">
                 <div class="form-container">
                     <h2 class="form-title">Add New Chicken Item</h2>
-                    <form id="chicken-form-element">
-                       
+                    <form id="beverage-form-element" onsubmit="AddChicken(event)">
                         <div class="form-grid">
+                            <!-- Title -->
                             <div class="form-group">
-                                <label for="chicken-title">Title:</label>
-                                <input type="text" id="chicken-title" placeholder="Chicken Title" name="title" required>
+                                <label for="beverage-title">Title:</label>
+                                <input type="text" id="beverage-title" name="title" placeholder="Beverage Title">
                             </div>
+
+                            <!-- Price -->
                             <div class="form-group">
-                                <label for="chicken-price">Price ($):</label>
-                                <input type="number" id="chicken-price" name="price" step="0.01" min="0" required>
+                                <label for="beverage-price">Price (රු):</label>
+                                <input type="number" id="beverage-price" name="price" step="0.01" min="0">
                             </div>
+
+                            <!-- Image URL and Preview -->
                             <div class="form-group">
-                                <label for="chicken-image">Image:</label>
-                                <div class="file-input-container">
-                                    <input type="file" id="chicken-image-file" class="file-input-hidden" accept="image/*">
-                                    <button type="button" class="file-input-btn"onclick="document.getElementById('chicken-image-file').click()">
-                                        📁 Choose Image File
-                                    </button>
-                                    <div class="image-info" id="chicken-image-info">No file selected</div>
-                                    <img id="chicken-image-preview" class="image-preview" alt="Image preview">
-                                </div>
-                                <input type="url" id="chicken-image-url" name="imageUrl" placeholder="Or enter image URL" style="margin-top: 10px;">
+                                <label for="beverage-image-url">Image URL:</label>
+                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Enter image URL"
+                                    style="margin-bottom: 10px;">
+                                <img id="beverage-image-preview" class="image-preview" alt="Image preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
+
+                            <!-- Description -->
                             <div class="form-group">
-                                <label for="chicken-description">Description:</label>
-                                <textarea id="chicken-description" name="description" rows="3"></textarea>
+                                <label for="beverage-description">Description:</label>
+                                <textarea id="beverage-description" name="description" rows="3"></textarea>
                             </div>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="btn-container">
-                            <button type="submit" class="btn btn-primary">Add Chicken Item</button>
-                            <button type="button" class="btn btn-secondary" >Clear Form</button>
+                            <button type="submit" class="btn btn-primary">Add Chicken</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
                         </div>
                     </form>
                 </div>
-                <div class="preview-section">
-                    <h3 class="preview-title">Chicken Items List</h3>
-                    <div id="chicken-list" class="empty-state">No chicken items added yet</div>
-                </div>
+
             </div>
 
             <div id="fries-form" class="form-section">
                 <div class="form-container">
                     <h2 class="form-title">Add New Fries Item</h2>
-                    <form id="fries-form-element">
-                        
+                   <form id="beverage-form-element" onsubmit="AddFries(event)">
                         <div class="form-grid">
+                            <!-- Title -->
                             <div class="form-group">
-                                <label for="fries-title">Title:</label>
-                                <input type="text" id="fries-title" placeholder="Fries Title" name="title" required>
+                                <label for="beverage-title">Title:</label>
+                                <input type="text" id="beverage-title" name="title" placeholder="Beverage Title">
                             </div>
+
+                            <!-- Price -->
                             <div class="form-group">
-                                <label for="fries-price">Price ($):</label>
-                                <input type="number" id="fries-price" name="price" step="0.01" min="0" required>
+                                <label for="beverage-price">Price (රු):</label>
+                                <input type="number" id="beverage-price" name="price" step="0.01" min="0">
                             </div>
+
+                            <!-- Image URL and Preview -->
                             <div class="form-group">
-                                <label for="fries-image">Image:</label>
-                                <div class="file-input-container">
-                                    <input type="file" id="fries-image-file" class="file-input-hidden" accept="image/*">
-                                    <button type="button" class="file-input-btn" onclick="document.getElementById('fries-image-file').click()">
-                                        📁 Choose Image File
-                                    </button>
-                                    <div class="image-info" id="fries-image-info">No file selected</div>
-                                    <img id="fries-image-preview" class="image-preview" alt="Image preview">
-                                </div>
-                                <input type="url" id="fries-image-url" name="imageUrl" placeholder="Or enter image URL" style="margin-top: 10px;">
+                                <label for="beverage-image-url">Image URL:</label>
+                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Enter image URL"
+                                    style="margin-bottom: 10px;">
+                                <img id="beverage-image-preview" class="image-preview" alt="Image preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
+
+                            <!-- Description -->
                             <div class="form-group">
-                                <label for="fries-description">Description:</label>
-                                <textarea id="fries-description" name="description" rows="3"></textarea>
+                                <label for="beverage-description">Description:</label>
+                                <textarea id="beverage-description" name="description" rows="3"></textarea>
                             </div>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="btn-container">
-                            <button type="submit" class="btn btn-primary">Add Fries Item</button>
-                            <button type="button" class="btn btn-secondary" >Clear Form</button>
+                            <button type="submit" class="btn btn-primary">Add Fries</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
                         </div>
                     </form>
                 </div>
-                <div class="preview-section">
-                    <h3 class="preview-title">Fries Items List</h3>
-                    <div id="fries-list" class="empty-state">No fries items added yet</div>
-                </div>
+
             </div>
 
             <div id="pasta-form" class="form-section">
                 <div class="form-container">
                     <h2 class="form-title">Add New Pasta Item</h2>
-                    <form id="pasta-form-element">
-                        
+                    <form id="beverage-form-element" onsubmit="AddPasta(event)">
                         <div class="form-grid">
+                            <!-- Title -->
                             <div class="form-group">
-                                <label for="pasta-title">Title:</label>
-                                <input type="text" id="pasta-title" placeholder="Pasta Title" name="title" required>
+                                <label for="beverage-title">Title:</label>
+                                <input type="text" id="beverage-title" name="title" placeholder="Beverage Title">
                             </div>
+
+                            <!-- Price -->
                             <div class="form-group">
-                                <label for="pasta-price">Price ($):</label>
-                                <input type="number" id="pasta-price" name="price" step="0.01" min="0" required>
+                                <label for="beverage-price">Price (රු):</label>
+                                <input type="number" id="beverage-price" name="price" step="0.01" min="0">
                             </div>
+
+                            <!-- Image URL and Preview -->
                             <div class="form-group">
-                                <label for="pasta-image">Image:</label>
-                                <div class="file-input-container">
-                                    <input type="file" id="pasta-image-file" class="file-input-hidden" accept="image/*">
-                                    <button type="button" class="file-input-btn" onclick="document.getElementById('pasta-image-file').click()">
-                                        📁 Choose Image File
-                                    </button>
-                                    <div class="image-info" id="pasta-image-info">No file selected</div>
-                                    <img id="pasta-image-preview" class="image-preview" alt="Image preview">
-                                </div>
-                                <input type="url" id="pasta-image-url" name="imageUrl" placeholder="Or enter image URL" style="margin-top: 10px;">
+                                <label for="beverage-image-url">Image URL:</label>
+                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Enter image URL"
+                                    style="margin-bottom: 10px;">
+                                <img id="beverage-image-preview" class="image-preview" alt="Image preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
+
+                            <!-- Description -->
                             <div class="form-group">
-                                <label for="pasta-description">Description:</label>
-                                <textarea id="pasta-description" name="description" rows="3"></textarea>
+                                <label for="beverage-description">Description:</label>
+                                <textarea id="beverage-description" name="description" rows="3"></textarea>
                             </div>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="btn-container">
-                            <button type="submit" class="btn btn-primary">Add Pasta Item</button>
-                            <button type="button" class="btn btn-secondary" >Clear Form</button>
+                            <button type="submit" class="btn btn-primary">Add Pasta</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
                         </div>
                     </form>
                 </div>
-                <div class="preview-section">
-                    <h3 class="preview-title">Pasta Items List</h3>
-                    <div id="pasta-list" class="empty-state">No pasta items added yet</div>
-                </div>
+
             </div>
 
             <div id="submarines-form" class="form-section">
                 <div class="form-container">
                     <h2 class="form-title">Add New Submarine</h2>
-                    <form id="submarines-form-element">
-                       
+                    <form id="beverage-form-element" onsubmit="AddSubmarine(event)">
                         <div class="form-grid">
+                            <!-- Title -->
                             <div class="form-group">
-                                <label for="submarines-title">Title:</label>
-                                <input type="text" id="submarines-title" placeholder="Submarines Title" name="title" required>
+                                <label for="beverage-title">Title:</label>
+                                <input type="text" id="beverage-title" name="title" placeholder="Beverage Title">
                             </div>
+
+                            <!-- Price -->
                             <div class="form-group">
-                                <label for="submarines-price">Price ($):</label>
-                                <input type="number" id="submarines-price" name="price" step="0.01" min="0" required>
+                                <label for="beverage-price">Price (රු):</label>
+                                <input type="number" id="beverage-price" name="price" step="0.01" min="0">
                             </div>
+
+                            <!-- Image URL and Preview -->
                             <div class="form-group">
-                                <label for="submarines-image">Image:</label>
-                                <div class="file-input-container">
-                                    <input type="file" id="submarines-image-file" class="file-input-hidden" accept="image/*">
-                                    <button type="button" class="file-input-btn" onclick="document.getElementById('submarines-image-file').click()">
-                                        📁 Choose Image File
-                                    </button>
-                                    <div class="image-info" id="submarines-image-info">No file selected</div>
-                                    <img id="submarines-image-preview" class="image-preview" alt="Image preview">
-                                </div>
-                                <input type="url" id="submarines-image-url" name="imageUrl" placeholder="Or enter image URL" style="margin-top: 10px;">
+                                <label for="beverage-image-url">Image URL:</label>
+                                <input type="url" id="beverage-image-url" name="imageUrl" placeholder="Enter image URL"
+                                    style="margin-bottom: 10px;">
+                                <img id="beverage-image-preview" class="image-preview" alt="Image preview"
+                                    style="max-width: 100%; height: auto;">
                             </div>
+
+                            <!-- Description -->
                             <div class="form-group">
-                                <label for="submarines-description">Description:</label>
-                                <textarea id="submarines-description" name="description" rows="3"></textarea>
+                                <label for="beverage-description">Description:</label>
+                                <textarea id="beverage-description" name="description" rows="3"></textarea>
                             </div>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="btn-container">
                             <button type="submit" class="btn btn-primary">Add Submarine</button>
-                            <button type="button" class="btn btn-secondary">Clear Form</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
                         </div>
                     </form>
                 </div>
-                <div class="preview-section">
-                    <h3 class="preview-title">Submarines List</h3>
-                    <div id="submarines-list" class="empty-state">No submarines added yet</div>
-                </div>
+
             </div>
         </div>
     </div>
 
     <script src="js/additem.js"></script>
 </body>
+
 </html>

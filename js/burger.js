@@ -2,36 +2,34 @@ let cart = [];
 let couponDiscount = 0;
 const handlingFee = 50.00;
 
-document.addEventListener('DOMContentLoaded', function () {
-    setupAddButtons();
-    setupCouponForm();
-});
-
 function setupAddButtons() {
     const addButtons = document.querySelectorAll('.add-btn');
 
     addButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            const menuItem = this.closest('.menu-item');
-            const name = menuItem.querySelector('.menu-item-name').textContent;
-            const code = menuItem.querySelector('.menu-item-code').textContent;
-            const priceText = menuItem.querySelector('.menu-item-price').textContent;
-
-            const priceMatch = priceText.match(/රු\.(\d+(?:,\d+)*(?:\.\d+)?)/);
-            const price = priceMatch ? parseFloat(priceMatch[1].replace(/,/g, '')) : 0;
-
-            const discountElement = menuItem.querySelector('.menu-item-discount');
-            let discountPercent = 0;
-            if (discountElement) {
-                const discountMatch = discountElement.textContent.match(/(\d+)%/);
-                discountPercent = discountMatch ? parseInt(discountMatch[1]) : 0;
-            }
-
-            const finalPrice = price - (price * discountPercent / 100);
-
-            addToCart(name, code, finalPrice, price, discountPercent);
-        });
+        button.removeEventListener('click', handleAddButtonClick);
+        button.addEventListener('click', handleAddButtonClick);
     });
+}
+
+function handleAddButtonClick() {
+    const menuItemCard = this.closest('.menu-item-card');
+    const name = menuItemCard.querySelector('.menu-item-name').textContent;
+    const code = name;
+    const priceText = menuItemCard.querySelector('.menu-item-price').textContent;
+
+    const priceMatch = priceText.match(/රු\.(\d+(?:,\d+)*(?:\.\d+)?)/);
+    const price = priceMatch ? parseFloat(priceMatch[1].replace(/,/g, '')) : 0;
+
+    const discountElement = menuItemCard.querySelector('.menu-item-discount');
+    let discountPercent = 0;
+    if (discountElement) {
+        const discountMatch = discountElement.textContent.match(/(\d+)%/);
+        discountPercent = discountMatch ? parseInt(discountMatch[1]) : 0;
+    }
+
+    const finalPrice = price - (price * discountPercent / 100);
+
+    addToCart(name, code, finalPrice, price, discountPercent);
 }
 
 function addToCart(name, code, price, originalPrice, discount) {
@@ -64,22 +62,22 @@ function updateCartDisplay() {
 
     let html = '';
     cart.forEach((item, index) => {
-        html += '<div class="cart-item">';
-        html += '<div class="cart-item-info">';
-        html += '<div class="cart-item-name">' + item.name + '</div>';
-        html += '<div class="cart-item-code">' + item.code + '</div>';
-        if (item.discount > 0) {
-            html += '<div class="cart-item-discount">' + item.discount + '% OFF</div>';
-        }
-        html += '</div>';
-        html += '<div class="cart-item-quantity">';
-        html += '<button class="quantity-btn minus" onclick="changeQuantity(' + index + ', -1)">-</button>';
-        html += '<span>' + item.quantity + '</span>';
-        html += '<button class="quantity-btn plus" onclick="changeQuantity(' + index + ', 1)">+</button>';
-        html += '</div>';
-        html += '<div class="cart-item-price">රු.' + (item.price * item.quantity).toFixed(2) + '</div>';
-        html += '<button class="remove-btn" onclick="removeItem(' + index + ')">x</button>';
-        html += '</div>';
+        html += `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-code">${item.code}</div>
+                        ${item.discount > 0 ? `<div class="cart-item-discount">${item.discount}% OFF</div>` : ''}
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn minus" onclick="changeQuantity(${index}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn plus" onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
+                    <div class="cart-item-price">රු.${(item.price * item.quantity).toFixed(2)}</div>
+                    <button class="remove-btn" onclick="removeItem(${index})">x</button>
+                </div>
+                `;
     });
 
     cartContainer.innerHTML = html;
@@ -119,73 +117,22 @@ function updateTotals() {
     document.getElementById('coupon-discount').textContent = 'රු.' + couponDiscountAmount.toFixed(2);
     document.getElementById('total').textContent = total.toFixed(2);
 }
-const style = document.createElement('style');
-style.textContent = `
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 5px;
+
+function applyCoupon() {
+    const couponInput = document.getElementById('coupon-input').value.trim();
+    if (couponInput === 'DISCOUNT10') {
+        couponDiscount = 10; 
+        alert('Coupon "DISCOUNT10" applied successfully! You get 10% off.');
+    } else if (couponInput === 'SAVE20') {
+        couponDiscount = 20; 
+        alert('Coupon "SAVE20" applied successfully! You get 20% off.');
+    } else {
+        couponDiscount = 0;
+        alert('Invalid or expired coupon.');
+    }
+    updateTotals();
 }
-.cart-item-info {
-    flex: 1;
-}
-.cart-item-name {
-    font-weight: bold;
-    font-size: 14px;
-}
-.cart-item-code {
-    font-size: 12px;
-    color: #666;
-}
-.cart-item-discount {
-    font-size: 11px;
-    color: green;
-}
-.cart-item-quantity {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin: 0 10px;
-}
-.quantity-btn {
-    width: 25px;
-    height: 25px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-.quantity-btn.minus {
-    background: #dc3545;
-    color: white;
-}
-.quantity-btn.plus {
-    background: #28a745;
-    color: white;
-}
-.cart-item-price {
-    font-weight: bold;
-    min-width: 80px;
-    text-align: right;
-}
-.remove-btn {
-    background: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 8px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-.empty-cart {
-    text-align: center;
-    color: #666;
-    padding: 20px;
-}
-`;
-document.head.appendChild(style);
+
 
 function getDateTime() {
     var now = new Date();
@@ -195,228 +142,199 @@ function getDateTime() {
     var hour = now.getHours();
     var minute = now.getMinutes();
     var second = now.getSeconds();
-    if (month.toString().length == 1) {
-        month = '0' + month;
-    }
-    if (day.toString().length == 1) {
-        day = '0' + day;
-    }
-    if (hour.toString().length == 1) {
-        hour = '0' + hour;
-    }
-    if (minute.toString().length == 1) {
-        minute = '0' + minute;
-    }
-    if (second.toString().length == 1) {
-        second = '0' + second;
-    }
+    month = month.toString().length == 1 ? '0' + month : month;
+    day = day.toString().length == 1 ? '0' + day : day;
+    hour = hour.toString().length == 1 ? '0' + hour : hour;
+    minute = minute.toString().length == 1 ? '0' + minute : minute;
+    second = second.toString().length == 1 ? '0' + second : second;
     var dateTime = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-    return dateTime;
+    document.getElementById("digital-clock").innerHTML = dateTime;
 }
 
-setInterval(function () {
-    currentTime = getDateTime();
-    document.getElementById("digital-clock").innerHTML = currentTime;
-}, 1000);
+
+async function fetchMenuItems(url, elementId, isSearch = false) {
+    const menuContainer = document.getElementById(elementId);
+    let body = "";
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(`Response Received for ${elementId}:`, data);
+
+        if (data.length === 0 && isSearch) {
+            menuContainer.innerHTML = `<div class="empty-menu">No results found for your search.</div>`;
+            return;
+        }
+        
+        const itemsToDisplay = Array.isArray(data) ? data : [data];
+
+        itemsToDisplay.forEach(element => {
+            body += `
+                    <div class="menu-item-card">
+                        <div class="menu-item-details">
+                            <center><div class="menu-item-name">${element.title}</div></center>
+                            <center><div class="menu-item-image">
+                                <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                            </div></center>
+                        </div>
+                        <center><div class="menu-item-price">රු.${element.price.toFixed(2)}</div></center>
+                        <center><button class="add-btn">Add</button></center>
+                    </div>
+                    `;
+        });
+        menuContainer.innerHTML = body;
+        setupAddButtons();
+    } catch (error) {
+        console.error(`Error fetching ${elementId}:`, error);
+        menuContainer.innerHTML = `<div class="empty-menu">Failed to load ${elementId}. Please try again later.</div>`;
+    }
+}
 
 function getAllBurgers() {
-    console.log("hello");
-
-    const menuItems = document.getElementById("menu-burgers");
-    let body = "";
-
-    fetch("http://localhost:8080/burger/getAll", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response Received:", data);
-            data.forEach(element => {
-                body += `
-          <div class="menu-item-card">
-            <div class="menu-item-details">
-                <center><div class="menu-item-name">${element.title}</div></center>
-                <div class="menu-item-image">
-                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
-                </div>
-            </div>
-            <center><div class="menu-item-price">රු.${element.price}</div>
-            <button class="add-btn">Add</button></center>
-          </div>
-        `;
-            });
-            menuItems.innerHTML = body;
-        });
+    fetchMenuItems("http://localhost:8080/burger/getAll", "menu-burgers");
 }
 function getFrenchFries() {
-    console.log("hello");
-
-    const menuItems = document.getElementById("menu-french-fries");
-    let body = "";
-
-    fetch("http://localhost:8080/fries/getAll", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response Received:", data);
-            data.forEach(element => {
-                body += `
-          <div class="menu-item-card">
-            <div class="menu-item-details">
-                <center><div class="menu-item-name">${element.title}</div></center>
-                <div class="menu-item-image">
-                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
-                </div>
-            </div>
-            <center><div class="menu-item-price">රු.${element.price}</div>
-            <button class="add-btn">Add</button></center>
-          </div>
-        `;
-            });
-            menuItems.innerHTML = body;
-        });
+    fetchMenuItems("http://localhost:8080/fries/getAll", "menu-french-fries");
 }
-
 function getAllSubmariens() {
-    console.log("hello");
-
-    const menuItems = document.getElementById("menu-submariens");
-    let body = "";
-
-    fetch("http://localhost:8080/submarines/getAll", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response Received:", data);
-            data.forEach(element => {
-                body += `
-          <div class="menu-item-card">
-            <div class="menu-item-details">
-                <center><div class="menu-item-name">${element.title}</div></center>
-                <div class="menu-item-image">
-                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
-                </div>
-            </div>
-            <center><div class="menu-item-price">රු.${element.price}</div>
-            <button class="add-btn">Add</button></center>
-          </div>
-        `;
-            });
-            menuItems.innerHTML = body;
-        });
+    fetchMenuItems("http://localhost:8080/submarines/getAll", "menu-submariens");
 }
 function getAllPasta() {
-    console.log("hello");
-
-    const menuItems = document.getElementById("menu-pasta");
-    let body = "";
-
-    fetch("http://localhost:8080/pasta/getAll", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response Received:", data);
-            data.forEach(element => {
-                body += `
-          <div class="menu-item-card">
-            <div class="menu-item-details">
-                <center><div class="menu-item-name">${element.title}</div></center>
-                <div class="menu-item-image">
-                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
-                </div>
-            </div>
-            <center><div class="menu-item-price">රු.${element.price}</div>
-            <button class="add-btn">Add</button></center>
-          </div>
-        `;
-            });
-            menuItems.innerHTML = body;
-        });
+    fetchMenuItems("http://localhost:8080/pasta/getAll", "menu-pasta");
 }
 function getAllChicken() {
-    console.log("hello");
-
-    const menuItems = document.getElementById("menu-chicken");
-    let body = "";
-
-    fetch("http://localhost:8080/chicken/getAll", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response Received:", data);
-            data.forEach(element => {
-                body += `
-          <div class="menu-item-card">
-            <div class="menu-item-details">
-                <center><div class="menu-item-name">${element.title}</div></center>
-                <div class="menu-item-image">
-                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
-                </div>
-            </div>
-            <center><div class="menu-item-price">රු.${element.price}</div>
-            <button class="add-btn">Add</button></center>
-          </div>
-        `;
-            });
-            menuItems.innerHTML = body;
-        });
+    fetchMenuItems("http://localhost:8080/chicken/getAll", "menu-chicken");
 }
 function getAllBeverages() {
-    console.log("hello");
-
-    const menuItems = document.getElementById("menu-beverages");
-    let body = "";
-
-    fetch("http://localhost:8080/beverage/getAll", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response Received:", data);
-            data.forEach(element => {
-                body += `
-          <div class="menu-item-card">
-            <div class="menu-item-details">
-                <center><div class="menu-item-name">${element.title}</div></center>
-                <div class="menu-item-image">
-                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
-                </div>
-            </div>
-            <center><div class="menu-item-price">රු.${element.price}</div>
-            <button class="add-btn">Add</button></center>
-          </div>
-        `;
-            });
-            menuItems.innerHTML = body;
-        });
+    fetchMenuItems("http://localhost:8080/beverage/getAll", "menu-beverages");
 }
 
 
-getAllSubmariens();
+async function SearchItems(event) {
+    if (event.key === "Enter" || event.type === "click") {
+        const searchTerm = document.querySelector('.search-input').value.trim();
+        if (searchTerm) {
+            const categories = [
+                { url: "http://localhost:8080/burger/search/", elementId: "menu-burgers" },
+                { url: "http://localhost:8080/fries/search/", elementId: "menu-french-fries" },
+                { url: "http://localhost:8080/submarines/search/", elementId: "menu-submariens" },
+                { url: "http://localhost:8080/pasta/search/", elementId: "menu-pasta" },
+                { url: "http://localhost:8080/chicken/search/", elementId: "menu-chicken" },
+                { url: "http://localhost:8080/beverage/search/", elementId: "menu-beverages" }
+            ];
+
+            let foundResults = false;
+            for (const category of categories) {
+                const searchUrl = `${category.url}${encodeURIComponent(searchTerm)}`;
+                const menuContainer = document.getElementById(category.elementId);
+                menuContainer.innerHTML = '';
+
+                try {
+                    const response = await fetch(searchUrl, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data && (Array.isArray(data) ? data.length > 0 : Object.keys(data).length > 0)) {
+                            foundResults = true;
+                            let body = '';
+                            const itemsToDisplay = Array.isArray(data) ? data : [data];
+                            itemsToDisplay.forEach(element => {
+                                body += `
+                                    <div class="menu-item-card">
+                                        <div class="menu-item-details">
+                                            <center><div class="menu-item-name">${element.title}</div></center>
+                                            <center><div class="menu-item-image">
+                                                <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                                            </div></center>
+                                        </div>
+                                        <center><div class="menu-item-price">රු.${element.price.toFixed(2)}</div></center>
+                                        <center><button class="add-btn">Add</button></center>
+                                    </div>
+                                `;
+                            });
+                            menuContainer.innerHTML = body;
+                            setupAddButtons(); 
+                        }
+                    } else {
+                        console.warn(`No results or error for ${category.elementId} with search term "${searchTerm}": Status ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error(`Error searching in ${category.elementId}:`, error);
+                }
+            }
+
+            if (!foundResults) {
+                categories.forEach(category => {
+                    document.getElementById(category.elementId).innerHTML = `<div class="empty-menu">No matching items found in this category.</div>`;
+                });
+            }
+        } else {
+            getAllBurgers();
+            getFrenchFries();
+            getAllSubmariens();
+            getAllPasta();
+            getAllChicken();
+            getAllBeverages();
+        }
+    }
+}
+function dialogonclick() {
+    console.log("Hello");
+    let dialog = document.getElementById("container02");
+    dialog.showModal();
+}
+function registerCustomer(){
+    let name = document.getElementById("customer-name");
+    let phone = document.getElementById("customer-number");
+    let email = document.getElementById("customer-email");
+
+       const request = {
+        "name": name.value,
+        "email":email.value,
+        "phoneNumber": phone.value,
+    };
+
+    fetch("http://localhost:8080/customer/add", {
+        method: "POST",
+        body: JSON.stringify(request),
+        headers: {"Content-Type": "application/json"}
+    })
+        .then(response => {
+            if (response.ok) {
+                alert("Customer registered successfully!");
+                name.value = '';
+                phone.value = '';
+                email.value = '';
+            } else {
+                throw new Error("Failed to register customer");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Something went wrong while registering the customer.");
+        });
+        document.getElementById("container02").close();
+}
+
+
 getAllBurgers();
 getFrenchFries();
+getAllSubmariens();
 getAllPasta();
 getAllChicken();
 getAllBeverages();
+updateCartDisplay();
+updateTotals();
+setInterval(getDateTime, 1000);
