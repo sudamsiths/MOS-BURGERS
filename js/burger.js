@@ -328,6 +328,46 @@ function registerCustomer(){
         document.getElementById("container02").close();
 }
 
+function searchCustomer(){
+
+    let phone = document.getElementById("customer-phoneenterd").value.trim();
+    document.getElementById("customer-nameenterd").value = '';
+    document.getElementById("customer-emailenterd").value = '';
+
+    if (!phone) {
+        alert("Please enter a phone number to search.");
+        return;
+    }
+
+    fetch(`http://localhost:8080/customer/search/${encodeURIComponent(phone)}`, {
+        method: "GET",
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else if (response.status === 404) {
+            throw new Error("Customer not found.");
+        } else {
+            throw new Error(`Failed to fetch customer: ${response.status} ${response.statusText}`);
+        }
+    })
+    .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+            const customer = data[0]; 
+            document.getElementById("customer-nameenterd").value = customer.name;
+            document.getElementById("customer-emailenterd").value = customer.email;
+            alert("Customer found!"); 
+        } else {
+            alert("Customer not found or invalid data received.");
+            console.warn("Received unexpected data format or empty array:", data);
+        }
+    })
+    .catch(error => {
+        console.error("Error during customer search:", error);
+    });
+}
+
 
 getAllBurgers();
 getFrenchFries();

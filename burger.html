@@ -799,6 +799,17 @@
         #cus-addbtn:hover {
             color: darkblue;
         }
+        #btn-customer-search{
+            background-color: #c3ee02;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            border: none;
+            padding: 5px 8px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
     </style>
 </head>
 
@@ -947,19 +958,19 @@
                                     </div>
                                 </form>
                             </dialog>
-                            <div class="mb-2">
-                                <input type="text" class="form-control customer-input" placeholder="Enter Phone Number"
-                                    id="customer-phoneenterd">
-                            </div>
-                            <div class="mb-2">
-                                <input type="text" class="form-control customer-input" placeholder="Customer Name"
-                                    id="customer-nameenterd">
-                            </div>
-                            <div class="mb-2">
-                                <input type="email" class="form-control customer-input" placeholder="Customer Email"
-                                    id="customer-emailenterd">
-                            </div>
-                        </div>
+                           <div class="mb-2">
+    <input type="text" class="form-control customer-input" placeholder="Enter Phone Number"
+           id="customer-phoneenterd">
+    <button type="button" id="btn-customer-search" onclick="searchCustomer()">search</button>
+</div>
+<div class="mb-2">
+    <input type="text" class="form-control customer-input" placeholder="Customer Name"
+           id="customer-nameenterd">
+</div>
+<div class="mb-2">
+    <input type="email" class="form-control customer-input" placeholder="Customer Email"
+           id="customer-emailenterd">
+</div>
 
                         <hr>
                     </div>
