@@ -218,3 +218,205 @@ setInterval(function () {
     currentTime = getDateTime();
     document.getElementById("digital-clock").innerHTML = currentTime;
 }, 1000);
+
+function getAllBurgers() {
+    console.log("hello");
+
+    const menuItems = document.getElementById("menu-burgers");
+    let body = "";
+
+    fetch("http://localhost:8080/burger/getAll", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Received:", data);
+            data.forEach(element => {
+                body += `
+          <div class="menu-item-card">
+            <div class="menu-item-details">
+                <center><div class="menu-item-name">${element.title}</div></center>
+                <div class="menu-item-image">
+                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                </div>
+            </div>
+            <center><div class="menu-item-price">රු.${element.price}</div>
+            <button class="add-btn">Add</button></center>
+          </div>
+        `;
+            });
+            menuItems.innerHTML = body;
+        });
+}
+function getFrenchFries() {
+    console.log("hello");
+
+    const menuItems = document.getElementById("menu-french-fries");
+    let body = "";
+
+    fetch("http://localhost:8080/fries/getAll", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Received:", data);
+            data.forEach(element => {
+                body += `
+          <div class="menu-item-card">
+            <div class="menu-item-details">
+                <center><div class="menu-item-name">${element.title}</div></center>
+                <div class="menu-item-image">
+                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                </div>
+            </div>
+            <center><div class="menu-item-price">රු.${element.price}</div>
+            <button class="add-btn">Add</button></center>
+          </div>
+        `;
+            });
+            menuItems.innerHTML = body;
+        });
+}
+
+function getAllSubmariens() {
+    console.log("hello");
+
+    const menuItems = document.getElementById("menu-submariens");
+    let body = "";
+
+    fetch("http://localhost:8080/submarines/getAll", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Received:", data);
+            data.forEach(element => {
+                body += `
+          <div class="menu-item-card">
+            <div class="menu-item-details">
+                <center><div class="menu-item-name">${element.title}</div></center>
+                <div class="menu-item-image">
+                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                </div>
+            </div>
+            <center><div class="menu-item-price">රු.${element.price}</div>
+            <button class="add-btn">Add</button></center>
+          </div>
+        `;
+            });
+            menuItems.innerHTML = body;
+        });
+}
+function getAllPasta() {
+    console.log("hello");
+
+    const menuItems = document.getElementById("menu-pasta");
+    let body = "";
+
+    fetch("http://localhost:8080/pasta/getAll", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Received:", data);
+            data.forEach(element => {
+                body += `
+          <div class="menu-item-card">
+            <div class="menu-item-details">
+                <center><div class="menu-item-name">${element.title}</div></center>
+                <div class="menu-item-image">
+                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                </div>
+            </div>
+            <center><div class="menu-item-price">රු.${element.price}</div>
+            <button class="add-btn">Add</button></center>
+          </div>
+        `;
+            });
+            menuItems.innerHTML = body;
+        });
+}
+function getAllChicken() {
+    console.log("hello");
+
+    const menuItems = document.getElementById("menu-chicken");
+    let body = "";
+
+    fetch("http://localhost:8080/chicken/getAll", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Received:", data);
+            data.forEach(element => {
+                body += `
+          <div class="menu-item-card">
+            <div class="menu-item-details">
+                <center><div class="menu-item-name">${element.title}</div></center>
+                <div class="menu-item-image">
+                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                </div>
+            </div>
+            <center><div class="menu-item-price">රු.${element.price}</div>
+            <button class="add-btn">Add</button></center>
+          </div>
+        `;
+            });
+            menuItems.innerHTML = body;
+        });
+}
+function getAllBeverages() {
+    console.log("hello");
+
+    const menuItems = document.getElementById("menu-beverages");
+    let body = "";
+
+    fetch("http://localhost:8080/beverage/getAll", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response Received:", data);
+            data.forEach(element => {
+                body += `
+          <div class="menu-item-card">
+            <div class="menu-item-details">
+                <center><div class="menu-item-name">${element.title}</div></center>
+                <div class="menu-item-image">
+                    <img src="${element.imageUrl}" alt="${element.title}" class="menu-img"/>
+                </div>
+            </div>
+            <center><div class="menu-item-price">රු.${element.price}</div>
+            <button class="add-btn">Add</button></center>
+          </div>
+        `;
+            });
+            menuItems.innerHTML = body;
+        });
+}
+
+
+getAllSubmariens();
+getAllBurgers();
+getFrenchFries();
+getAllPasta();
+getAllChicken();
+getAllBeverages();

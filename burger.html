@@ -338,6 +338,14 @@
         .add-item-btn {
             animation: fadeInUp 0.5s ease-in-out;
         }
+        .menu-img{
+            width: 150px;
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 10px;
+            flex-grow: 1;
+        }
     </style>
 </head>
 
@@ -348,255 +356,53 @@
     <div class="master-container">
         <div class="card menu">
             <div class="category-grid">
-                <a href="#burger"><button style="background-color: #92cf20;"><i class="fa-solid fa-burger" ></i> Burger</button></a>
-                <a href="#french-frice"><button style="background-color: #10d3da;"><i class="fa-solid fa-french-fries"></i> French Fries</button></a>
-                <a href="#chicken"><button style="background-color: #ddda0c;"><i class="fa-solid fa-drumstick-bite"></i> Chicken</button></a>
-                <a href="#pasta"><button style="background-color: #d680cf;"><i class="fa-solid fa-bowl-food"></i> Pasta</button></a>
-                <a href="#Submarines"><button style="background-color: #1f5dbb;"><i class="fa-solid fa-sandwich"></i> Submarines</button></a>
-                <a href="#Beverages"><button  style="background-color: #1f8827;"><i class="fa-solid fa-glass-water"></i> Beverages</button></a>
+                <a href="#burger"><button style="background-color: #92cf20;"><i class="fa-solid fa-burger"></i>
+                        Burger</button></a>
+                <a href="#french-frice"><button style="background-color: #10d3da;"><i
+                            class="fa-solid fa-french-fries"></i> French Fries</button></a>
+                <a href="#chicken"><button style="background-color: #ddda0c;"><i class="fa-solid fa-drumstick-bite"></i>
+                        Chicken</button></a>
+                <a href="#pasta"><button style="background-color: #d680cf;"><i class="fa-solid fa-bowl-food"></i>
+                        Pasta</button></a>
+                <a href="#Submarines"><button style="background-color: #1f5dbb;"><i class="fa-solid fa-sandwich"></i>
+                        Submarines</button></a>
+                <a href="#Beverages"><button style="background-color: #1f8827;"><i class="fa-solid fa-glass-water"></i>
+                        Beverages</button></a>
                 <a href="additemform.html" class="add-item-btn">ADD ITEM +</a>
             </div>
 
 
             <label class="title">Restaurant Menu</label>
-
             <div class="menu-category">
                 <div class="category-title" id="burger">Burgers</div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Classic Burger (Large)</div>
-                        <div class="menu-item-code">B1001</div>
-                    </div>
-                    <div class="menu-item-price">රු.750.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Classic Burger (Regular)</div>
-                        <div class="menu-item-code">B1002</div>
-                    </div>
-                    <div class="menu-item-price">රු.1500.00 <span class="menu-item-discount">15% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Turkey Burger</div>
-                        <div class="menu-item-code">B1003</div>
-                    </div>
-                    <div class="menu-item-price">රු.1600.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Chicken Burger (Regular)</div>
-                        <div class="menu-item-code">B1005</div>
-                    </div>
-                    <div class="menu-item-price">රු.800.00 <span class="menu-item-discount">20% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Bacon Burger</div>
-                        <div class="menu-item-code">B1008</div>
-                    </div>
-                    <div class="menu-item-price">රු.650.00 <span class="menu-item-discount">15% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
+                <div class="menu-item" id="menu-burgers">
+                   
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="french-frice">French Fries</div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Steak Fries (Large)</div>
-                        <div class="menu-item-code">B1025</div>
-                    </div>
-                    <div class="menu-item-price">රු.1200.00 </div>
-                    <button class="add-btn">Add</button>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">French Fries (Large)</div>
-                        <div class="menu-item-code">B1027</div>
-                    </div>
-                    <div class="menu-item-price">රු.800.00 </div>
-                    <button class="add-btn">Add</button>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">French Fries (Small)</div>
-                        <div class="menu-item-code">B1029</div>
-                    </div>
-                    <div class="menu-item-price">රු.450.00 </div>
-                    <button class="add-btn">Add</button>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Sweet Potato Fries (Large)</div>
-                        <div class="menu-item-code">B1030</div>
-                    </div>
-                    <div class="menu-item-price">රු.600.00 </div>
-                    <button class="add-btn">Add</button>
-                </div>
+                <div class="menu-item" id="menu-french-fries">
 
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="Submarines">Submarines</div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Crispy Chicken Submarine (Large)</div>
-                        <div class="menu-item-code">B1016</div>
-                    </div>
-                    <div class="menu-item-price">රු.2000.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Chicken Submarine (Large)</div>
-                        <div class="menu-item-code">B1018</div>
-                    </div>
-                    <div class="menu-item-price">රු.1800.00 <span class="menu-item-discount">3% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Double Cheese n Chicken Submarine</div>
-                        <div class="menu-item-code">B1022</div>
-                    </div>
-                    <div class="menu-item-price">රු.1900.00 <span class="menu-item-discount">16% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Special Horgie Submarine</div>
-                        <div class="menu-item-code">B1023</div>
-                    </div>
-                    <div class="menu-item-price">රු.2800.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">MOS Special Submarine</div>
-                        <div class="menu-item-code">B1024</div>
-                    </div>
-                    <div class="menu-item-price">රු.3000.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Grinder Submarine</div>
-                        <div class="menu-item-code">B1020</div>
-                    </div>
-                    <div class="menu-item-price">රු.2300.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
+                <div class="menu-item" id="menu-submariens">
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="pasta">Pasta</div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Chicken n Cheese Pasta</div>
-                        <div class="menu-item-code">B1031</div>
-                    </div>
-                    <div class="menu-item-price">රු.1600.00 <span class="menu-item-discount">15% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Ground Turkey Pasta Bake</div>
-                        <div class="menu-item-code">B1033</div>
-                    </div>
-                    <div class="menu-item-price">රු.2900.00 <span class="menu-item-discount">10% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Creamy Shrimp Pasta</div>
-                        <div class="menu-item-code">B1034</div>
-                    </div>
-                    <div class="menu-item-price">රු.2000.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Lemon Butter Pasta</div>
-                        <div class="menu-item-code">B1035</div>
-                    </div>
-                    <div class="menu-item-price">රු.1950.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
+                <div class="menu-item" id="menu-pasta">
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="chicken">Chicken</div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Fried Chicken (Regular)</div>
-                        <div class="menu-item-code">B1039</div>
-                    </div>
-                    <div class="menu-item-price">රු.2300.00 <span class="menu-item-discount">10% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Fried Chicken (Small)</div>
-                        <div class="menu-item-code">B1038</div>
-                    </div>
-                    <div class="menu-item-price">රු.1200.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">BBQ Chicken (Regular) </div>
-                        <div class="menu-item-code">B1043</div>
-                    </div>
-                    <div class="menu-item-price">රු.2100.00 </div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Hot Wings (Large)</div>
-                        <div class="menu-item-code">B1041</div>
-                    </div>
-                    <div class="menu-item-price">රු.2400.00 </div>
-                    <button class="add-btn">Add</button>
-                </div>
+                <div class="menu-item" id="menu-chicken">
             </div>
 
             <div class="menu-category">
                 <div class="category-title" id="Beverages">Beverages</div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Coca-Cola (330ml) </div>
-                        <div class="menu-item-code">B1045</div>
-                    </div>
-                    <div class="menu-item-price">රු.1230.00</div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Pepsi (330ml)</div>
-                        <div class="menu-item-code">B1044</div>
-                    </div>
-                    <div class="menu-item-price">රු.990.00 <span class="menu-item-discount">5% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-item-details">
-                        <div class="menu-item-name">Miranda (330ml)</div>
-                        <div class="menu-item-code">B1047</div>
-                    </div>
-                    <div class="menu-item-price">රු.850.00 <span class="menu-item-discount">7% off</span></div>
-                    <button class="add-btn">Add</button>
-                </div>
+                <div class="menu-item" id="menu-beverages">
             </div>
         </div>
 
