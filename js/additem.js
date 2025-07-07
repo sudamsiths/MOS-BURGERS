@@ -86,13 +86,12 @@ function AddBurger(event) {
     })
     .then(response => response.ok ? 
         (alert("Burger added successfully!"), clearForm('burger')) : 
-        Promise.reject("Failed to add burger"))
+        Promise.reject("Failed to add Burger"))
     .catch(error => {
         console.error("Error:", error);
-        alert("Something went wrong while adding the burger.");
+        alert("Something went wrong while adding the Burger.");
     });
 }
-
 function AddChicken(event) {
     event.preventDefault();
     const Title = document.getElementById("chicken-title");
@@ -113,14 +112,13 @@ function AddChicken(event) {
         headers: {"Content-Type": "application/json"}
     })
     .then(response => response.ok ? 
-        (alert("Chicken item added successfully!"), clearForm('chicken')) : 
-        Promise.reject("Failed to add chicken item"))
+        (alert("Chicken added successfully!"), clearForm('chicken')) : 
+        Promise.reject("Failed to add chicken"))
     .catch(error => {
         console.error("Error:", error);
-        alert("Something went wrong while adding the chicken item.");
+        alert("Something went wrong while adding the Burger.");
     });
 }
-
 function AddFries(event) {
     event.preventDefault();
     const Title = document.getElementById("fries-title");
@@ -141,14 +139,13 @@ function AddFries(event) {
         headers: {"Content-Type": "application/json"}
     })
     .then(response => response.ok ? 
-        (alert("Fries item added successfully!"), clearForm('fries')) : 
-        Promise.reject("Failed to add fries item"))
+        (alert("Fries added successfully!"), clearForm('fries')) : 
+        Promise.reject("Failed to add fries"))
     .catch(error => {
         console.error("Error:", error);
-        alert("Something went wrong while adding the fries item.");
+        alert("Something went wrong while adding the Fries.");
     });
 }
-
 function AddPasta(event) {
     event.preventDefault();
     const Title = document.getElementById("pasta-title");
@@ -169,14 +166,13 @@ function AddPasta(event) {
         headers: {"Content-Type": "application/json"}
     })
     .then(response => response.ok ? 
-        (alert("Pasta item added successfully!"), clearForm('pasta')) : 
-        Promise.reject("Failed to add pasta item"))
+        (alert("Pasta added successfully!"), clearForm('pasta')) : 
+        Promise.reject("Failed to add Pasta"))
     .catch(error => {
         console.error("Error:", error);
-        alert("Something went wrong while adding the pasta item.");
+        alert("Something went wrong while adding the Pasta.");
     });
 }
-
 function AddSubmarine(event) {
     event.preventDefault();
     const Title = document.getElementById("submarine-title");

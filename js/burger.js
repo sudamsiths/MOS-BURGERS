@@ -121,10 +121,10 @@ function updateTotals() {
 function applyCoupon() {
     const couponInput = document.getElementById('coupon-input').value.trim();
     if (couponInput === 'DISCOUNT10') {
-        couponDiscount = 10; 
+        couponDiscount = 10;
         alert('Coupon "DISCOUNT10" applied successfully! You get 10% off.');
     } else if (couponInput === 'SAVE20') {
-        couponDiscount = 20; 
+        couponDiscount = 20;
         alert('Coupon "SAVE20" applied successfully! You get 20% off.');
     } else {
         couponDiscount = 0;
@@ -172,7 +172,7 @@ async function fetchMenuItems(url, elementId, isSearch = false) {
             menuContainer.innerHTML = `<div class="empty-menu">No results found for your search.</div>`;
             return;
         }
-        
+
         const itemsToDisplay = Array.isArray(data) ? data : [data];
 
         itemsToDisplay.forEach(element => {
@@ -265,7 +265,7 @@ async function SearchItems(event) {
                                 `;
                             });
                             menuContainer.innerHTML = body;
-                            setupAddButtons(); 
+                            setupAddButtons();
                         }
                     } else {
                         console.warn(`No results or error for ${category.elementId} with search term "${searchTerm}": Status ${response.status}`);
@@ -295,21 +295,21 @@ function dialogonclick() {
     let dialog = document.getElementById("container02");
     dialog.showModal();
 }
-function registerCustomer(){
+function registerCustomer() {
     let name = document.getElementById("customer-name");
     let phone = document.getElementById("customer-number");
     let email = document.getElementById("customer-email");
 
-       const request = {
+    const request = {
         "name": name.value,
-        "email":email.value,
+        "email": email.value,
         "phoneNumber": phone.value,
     };
 
     fetch("http://localhost:8080/customer/add", {
         method: "POST",
         body: JSON.stringify(request),
-        headers: {"Content-Type": "application/json"}
+        headers: { "Content-Type": "application/json" }
     })
         .then(response => {
             if (response.ok) {
@@ -325,10 +325,10 @@ function registerCustomer(){
             console.error("Error:", error);
             alert("Something went wrong while registering the customer.");
         });
-        document.getElementById("container02").close();
+    document.getElementById("container02").close();
 }
 
-function searchCustomer(){
+function searchCustomer() {
 
     let phone = document.getElementById("customer-phoneenterd").value.trim();
     document.getElementById("customer-nameenterd").value = '';
@@ -341,31 +341,31 @@ function searchCustomer(){
 
     fetch(`http://localhost:8080/customer/search/${encodeURIComponent(phone)}`, {
         method: "GET",
-        headers: {"Content-Type": "application/json"}
+        headers: { "Content-Type": "application/json" }
     })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else if (response.status === 404) {
-            throw new Error("Customer not found.");
-        } else {
-            throw new Error(`Failed to fetch customer: ${response.status} ${response.statusText}`);
-        }
-    })
-    .then(data => {
-        if (Array.isArray(data) && data.length > 0) {
-            const customer = data[0]; 
-            document.getElementById("customer-nameenterd").value = customer.name;
-            document.getElementById("customer-emailenterd").value = customer.email;
-            alert("Customer found!"); 
-        } else {
-            alert("Customer not found or invalid data received.");
-            console.warn("Received unexpected data format or empty array:", data);
-        }
-    })
-    .catch(error => {
-        console.error("Error during customer search:", error);
-    });
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else if (response.status === 404) {
+                throw new Error("Customer not found.");
+            } else {
+                throw new Error(`Failed to fetch customer: ${response.status} ${response.statusText}`);
+            }
+        })
+        .then(data => {
+            if (Array.isArray(data) && data.length > 0) {
+                const customer = data[0];
+                document.getElementById("customer-nameenterd").value = customer.name;
+                document.getElementById("customer-emailenterd").value = customer.email;
+                alert("Customer found!");
+            } else {
+                alert("Customer not found or invalid data received.");
+                console.warn("Received unexpected data format or empty array:", data);
+            }
+        })
+        .catch(error => {
+            console.error("Error during customer search:", error);
+        });
 }
 
 
